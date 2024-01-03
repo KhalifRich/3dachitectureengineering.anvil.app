@@ -5,6 +5,9 @@ name: Classic 1
 startup_form: null
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
+metadata: {title: We Strictly Recommend 3D Architectural Designs Uploads, description: 'An
+    environment for 3D Architectural uploads for dynamic designs by global engineers,
+    enhancing interactive designing and better designs in the long run!'}
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
