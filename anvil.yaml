@@ -11,9 +11,9 @@ services:
   client_config: {}
   server_config: {}
 startup: {type: form, module: Upload}
-package_name: Classic_1
+package_name: _3dachitectureengineering
 allow_embedding: false
-name: Classic 1
+name: 3dachitectureengineering
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
 metadata: {title: We Strictly Recommend 3D Architectural Designs Uploads, description: 'An
