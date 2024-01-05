@@ -1,0 +1,25 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:single-column.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: TextBox
+    properties: {}
+    name: text_box_1
+    layout_properties: {grid_position: 'DNFFVG,CBMASU'}
+    event_bindings: {pressed_enter: text_box_1_pressed_enter}
+  - type: TextBox
+    properties: {}
+    name: text_box_2
+    layout_properties: {grid_position: 'EKJBME,KUHMVE'}
+    event_bindings: {pressed_enter: text_box_2_pressed_enter}
+  - type: Button
+    properties: {text: button_1}
+    name: button_1
+    layout_properties: {grid_position: 'LOSGXJ,NCFCXT', slot: title}
+    event_bindings: {click: button_1_click}
