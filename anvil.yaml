@@ -72,6 +72,12 @@ db_schema:
     - name: Email
       admin_ui: {width: 200, order: 4}
       type: string
+    - name: Password
+      admin_ui: {width: 200, order: 5}
+      type: string
+    - name: Confirm Password
+      admin_ui: {width: 200, order: 6}
+      type: string
     title: Registration
   products:
     client: none
