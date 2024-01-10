@@ -13,7 +13,7 @@ class Registration(RegistrationTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     
-     def first_name_pressed_enter(self, **event_args):
+      def first_name_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     pass
      def second_name_pressed_enter(self, **event_args):
