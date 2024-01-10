@@ -14,7 +14,7 @@ class Sign_Up(Sign_UpTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-      def first_name_pressed_enter(self, **event_args):
+    def first_name_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     pass
      def second_name_pressed_enter(self, **event_args):
