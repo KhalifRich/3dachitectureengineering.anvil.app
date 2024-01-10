@@ -12,5 +12,19 @@ class Registration(RegistrationTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    
+     def first_name_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+     def email_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+     def email_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+    
+    def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
 
     # Any code you write here will run before the form opens.
