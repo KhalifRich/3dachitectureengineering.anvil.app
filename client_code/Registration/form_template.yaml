@@ -1,0 +1,38 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:single-column.html'}
+components:
+- type: ColumnPanel
+  properties: {background: 'theme:Accent 1'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: text_box_1
+    properties: {text: First Name}
+    type: TextBox
+    layout_properties: {grid_position: 'MOLLSN,BSVFOH'}
+  - name: text_box_2
+    properties: {text: Second Name}
+    type: TextBox
+    layout_properties: {grid_position: 'OOVOSC,JUKWUJ'}
+  - name: text_box_3
+    properties: {text: Phone}
+    type: TextBox
+    layout_properties: {grid_position: 'AIZPTJ,VMVEFN'}
+  - name: text_box_4
+    properties: {text: Address}
+    type: TextBox
+    layout_properties: {grid_position: 'LQAYXL,NSUREI'}
+  - name: text_box_5
+    properties: {text: Email}
+    type: TextBox
+    layout_properties: {grid_position: 'CTQPPP,HHOGXG'}
+  - name: text_box_6
+    properties: {text: Password}
+    type: TextBox
+    layout_properties: {grid_position: 'PKUTBJ,NYXSDO'}
+  - name: text_box_7
+    properties: {text: Confirm Password}
+    type: TextBox
+    layout_properties: {grid_position: 'MIQVXH,RAFNZU'}
