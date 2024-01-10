@@ -1,7 +1,8 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {html: '@theme:single-column.html'}
+  properties: {html: '@theme:single-column.html', background: 'theme:Accent 1', foreground: 'theme:Accent
+      2'}
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
@@ -11,7 +12,7 @@ components:
   - type: TextBox
     properties: {text: email}
     name: text_box_1
-    layout_properties: {grid_position: 'DNFFVG,CBMASU'}
+    layout_properties: {grid_position: 'QTZJRK,IPMKLS'}
     event_bindings: {pressed_enter: text_box_1_pressed_enter}
   - type: TextBox
     properties: {text: password}
@@ -23,3 +24,13 @@ components:
     name: button_1
     layout_properties: {grid_position: 'LOSGXJ,NCFCXT', slot: title}
     event_bindings: {click: button_1_click}
+  - name: Or
+    properties: {align: center, visible: true, bold: true, background: ''}
+    type: Label
+    layout_properties: {grid_position: 'BKALJP,WUZFCV'}
+    data_bindings: []
+  - name: button_2
+    properties: {text: Register}
+    type: Button
+    layout_properties: {grid_position: 'JUDDNJ,KRNUWS'}
+    event_bindings: {click: button_2_click}
