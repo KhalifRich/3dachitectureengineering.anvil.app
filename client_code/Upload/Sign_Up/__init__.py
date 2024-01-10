@@ -1,4 +1,4 @@
-from ._anvil_designer import Sign_upTemplate
+from ._anvil_designer import Sign_UpTemplate
 from anvil import *
 import stripe.checkout
 import anvil.google.auth, anvil.google.drive
@@ -8,7 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class Sign_up(Sign_upTemplate):
+class Sign_Up(Sign_UpTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -34,6 +34,9 @@ class Sign_up(Sign_upTemplate):
     pass
      def confirm_password_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
+    pass
+    def sign_up_click(self, **event_args):
+    """This method is called when the button is clicked"""
     pass
     
 

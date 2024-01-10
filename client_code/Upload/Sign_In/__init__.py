@@ -30,14 +30,14 @@ class Sign_In(Sign_InTemplate):
   def sign_in_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
-class Sign_up(Sign_upTemplate):
+class Sign_Up(Sign_UpTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
     # Any code you write here will run before the form opens.
-def button_2_click(self, **event_args):
-    open_form('Sign_up')
+def sign_up_click(self, **event_args):
+    open_form('Sign_Up')
  pass
   

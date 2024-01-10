@@ -36,7 +36,7 @@ components:
     properties: {text: confirm password}
     type: TextBox
     layout_properties: {grid_position: 'IVXXIO,ULPSPY'}
-  - name: button_1
+  - name: button_2
     properties: {text: Sign up}
     type: Button
     layout_properties: {grid_position: 'YGGEJK,RKODSS'}
