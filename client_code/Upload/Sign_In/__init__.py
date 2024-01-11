@@ -37,5 +37,6 @@ class Sign_In(Sign_InTemplate):
     """This method is called when the button is clicked"""
     open_form('Sign_Up')
     pass
+    
 
   

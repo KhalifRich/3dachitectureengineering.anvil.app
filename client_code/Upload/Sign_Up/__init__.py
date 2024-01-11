@@ -39,6 +39,15 @@ class Sign_Up(Sign_UpTemplate):
     pass
     def sign_up_click(self, **event_args):
     """This method is called when the button is clicked"""
+    def submit_sign_up_click(self, **event_args):
+    first_name = self.first_name_box.text
+    second_name = self.second_name_box.text
+    email = self.email_box.text
+    phone = self.phone_box.text
+    address = self.address_box.text
+    password = self.password_box.text
+    confirm_password = self.confirm_password_box.text
+    anvil.server.call('add_user', name, email, phone, address, password, confirm_password)
     pass
     
 
