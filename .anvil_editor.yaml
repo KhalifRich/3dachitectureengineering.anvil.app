@@ -4,7 +4,8 @@ unique_ids:
     Upload.Sign_In: '170446613286161969483289.81189'
     Upload.Sign_Up: '1704895560273245751376588.9254'
   modules: {}
-  server_modules: {}
+  server_modules:
+    Sign_Up: '1704985458902871550430228.7562'
   assets:
     dashboard.html: OXDELNECB67VAYB44K7MKKPOUK3LPDLG
     single-column.html: O3O5OT3PTPUTVTUEFIT6KJ6DMEVCBGTF
