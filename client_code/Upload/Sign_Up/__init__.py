@@ -48,6 +48,9 @@ class Sign_Up(Sign_UpTemplate):
     password = self.password_box.text
     confirm_password = self.confirm_password_box.text
     anvil.server.call('add_user', name, email, phone, address, password, confirm_password)
+    Notification("You have successfully registered, You can now enjoy constructing and improve your post modern architectural skills.", title="Thanks!").show()
+
+    self.clear_inputs()
     pass
     
 
