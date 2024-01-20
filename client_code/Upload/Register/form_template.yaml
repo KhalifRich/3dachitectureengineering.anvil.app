@@ -8,35 +8,35 @@ components:
   name: content_panel
   layout_properties: {slot: default}
   components:
-  - name: text_box_1
+  - name: first_name
     properties: {text: first name}
     type: TextBox
-    layout_properties: {grid_position: 'FTRTAR,EZITPH'}
-  - name: text_box_2
+    layout_properties: {grid_position: 'EAMJWR,KGKDUC'}
+  - name: second_name
     properties: {text: second name}
     type: TextBox
     layout_properties: {grid_position: 'JGSOMK,SHEWOF'}
-  - name: text_box_3
+  - name: phone
     properties: {text: phone}
     type: TextBox
     layout_properties: {grid_position: 'HNAIAV,GUZCZE'}
-  - name: text_box_4
+  - name: address
     properties: {text: address}
     type: TextBox
     layout_properties: {grid_position: 'KFLMQO,AVXVIE'}
-  - name: text_box_5
+  - name: email
     properties: {text: email}
     type: TextBox
     layout_properties: {grid_position: 'RISLQG,BTIEPI'}
-  - name: text_box_6
+  - name: password
     properties: {text: password}
     type: TextBox
     layout_properties: {grid_position: 'TCBQPD,RGRJUP'}
-  - name: text_box_7
+  - name: confirm_password
     properties: {text: confirm password}
     type: TextBox
     layout_properties: {grid_position: 'IVXXIO,ULPSPY'}
-  - name: button_2
-    properties: {text: Sign up}
+  - name: register
+    properties: {text: Register}
     type: Button
     layout_properties: {grid_position: 'YGGEJK,RKODSS'}

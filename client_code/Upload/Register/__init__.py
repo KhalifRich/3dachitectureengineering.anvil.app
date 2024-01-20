@@ -1,4 +1,4 @@
-from ._anvil_designer import Sign_UpTemplate
+from ._anvil_designer import RegisterTemplate
 from anvil import *
 import anvil.server
 import stripe.checkout
@@ -10,7 +10,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
-class Sign_Up(Sign_UpTemplate):
+class Register(Upload.RegisterTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
@@ -65,7 +65,7 @@ class Sign_Up(Sign_UpTemplate):
         self.clear_inputs()
 # In the Form Code section
 
-class Form1(Form1Template):
+class Register(Upload.RegisterTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
 
