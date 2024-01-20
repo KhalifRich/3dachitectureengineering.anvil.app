@@ -30,7 +30,7 @@ components:
     layout_properties: {grid_position: 'BKALJP,WUZFCV'}
     data_bindings: []
   - name: button_2
-    properties: {text: Sign up}
+    properties: {text: Register}
     type: Button
     layout_properties: {grid_position: 'JUDDNJ,KRNUWS'}
     event_bindings: {click: button_2_click}

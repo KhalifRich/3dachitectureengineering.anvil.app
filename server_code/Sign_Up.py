@@ -8,6 +8,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from anvil import app_tables
 
 
 class Sign_Up(Sign_UpTemplate):
@@ -48,6 +49,26 @@ class Sign_Up(Sign_UpTemplate):
     def sign_up_click(self, **event_args):
         """This method is called when the button is clicked"""
         pass
+      # In the Server Code section
+
+@anvil.server.callable
+def register_user(username, email, password):
+    # Validate input
+    if not username or not email or not password:
+        raise ValueError("Please fill in all fields.")
+
+    # Check if username or email is already taken
+    if app_tables.users.get(username=username) or app_tables.users.get(email=email):
+        raise ValueError("Username or email is already taken.")
+
+    # Hash the password (you should use a secure hashing library in a real application)
+    hashed_password = password  # Replace with actual hashing code
+
+    # Store user information in the database
+    new_user = app_tables.users.add_row(username=username, email=email, password=hashed_password)
+
+    return new_user
+
     
     def submit_sign_up_click(self, **event_args):
         first_name = self.first_name_box.text
@@ -58,7 +79,7 @@ class Sign_Up(Sign_UpTemplate):
         password = self.password_box.text
         confirm_password = self.confirm_password_box.text
         
-        anvil.server.call('add_user', first_name, second_name, email, phone, address, password, confirm_password)
+        anvil.server.call('new_user', first_name, second_name, email, phone, address, password, confirm_password)
         
         Notification("You have successfully registered, You can now enjoy constructing and improve your post-modern architectural skills.", title="Thanks!").show()
 

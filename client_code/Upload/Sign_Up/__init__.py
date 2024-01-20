@@ -45,11 +45,11 @@ class Sign_Up(Sign_UpTemplate):
         """This method is called when the user presses Enter in this text box"""
         pass
     
-    def sign_up_click(self, **event_args):
+    def register_click(self, **event_args):
         """This method is called when the button is clicked"""
         pass
     
-    def submit_sign_up_click(self, **event_args):
+    def submit_register_click(self, **event_args):
         first_name = self.first_name_box.text
         second_name = self.second_name_box.text
         email = self.email_box.text
@@ -58,8 +58,26 @@ class Sign_Up(Sign_UpTemplate):
         password = self.password_box.text
         confirm_password = self.confirm_password_box.text
         
-        anvil.server.call('add_user', first_name, second_name, email, phone, address, password, confirm_password)
+        anvil.server.call('new_user', first_name, second_name, email, phone, address, password, confirm_password)
         
         Notification("You have successfully registered, You can now enjoy constructing and improve your post-modern architectural skills.", title="Thanks!").show()
 
         self.clear_inputs()
+# In the Form Code section
+
+class Form1(Form1Template):
+    def __init__(self, **properties):
+        self.init_components(**properties)
+
+    def register_button_click(self, **event_args):
+        # Get user input
+        username = self.username_textbox.text
+        email = self.email_textbox.text
+        password = self.password_textbox.text
+
+        # Call the server-side function
+        try:
+            new_user = anvil.server.call('register_user', username, email, password)
+            print(f"User {new_user['username']} registered successfully!")
+        except Exception as e:
+            print(f"Registration failed: {str(e)}")
