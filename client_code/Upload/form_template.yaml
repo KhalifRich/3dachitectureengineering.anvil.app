@@ -17,6 +17,10 @@ components:
     type: FileLoader
     layout_properties: {grid_position: 'YYDGQF,WWGITD'}
     event_bindings: {change: file_loader_1_change}
+  - name: subscribe
+    properties: {text: Subscribe, align: right}
+    type: Button
+    layout_properties: {grid_position: 'WWSJXW,MIZMNE'}
 custom_component: true
 properties:
 - {name: prop, type: string, default_value: '', important: true, default_binding_prop: true}
