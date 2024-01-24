@@ -14,19 +14,7 @@ class Upload(UploadTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-@anvil.server.callable
-def create_checkout_session():
-    session = stripe.checkout.Session.create(
-        payment_method_types=['card'],
-        line_registration=[{
-            'price': 'your_price_id',
-        }],
-        mode='payment',
-        success_url='https://your-app-url/success',
-        cancel_url='https://your-app-url/cancel',
-    )
     # Any code you write here will run before the form opens.
-
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
     {
@@ -36,6 +24,17 @@ def create_checkout_session():
 
   def subscribe_click(self, **event_args):
     """This method is called when the button is clicked"""
+    @anvil.server.callable
+    def create_checkout_session():
+     session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        user_registration=[{
+            'price': 'your_price_id',
+        }],
+        mode='payment',
+        success_url='https://3darchitectureengineering.anvil.app/success',
+        cancel_url='https://3darchitectureengineering.anvil.app/cancel',
+    )
     def subscribe_button_click(self, **event_args):
         stripe_token = js.stripe.createToken(self.card_number, {})
         amount = self.amount_box.text
