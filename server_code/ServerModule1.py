@@ -20,7 +20,7 @@ import stripe
 #   print("Hello, " + name + "!")
 #   return 42
 #
-stripe.api_key = 'your_stripe_secret_key'
+stripe.api_key = 'pk_test_51OVEBOJSA1HIvKzySaMh8c9BmuUOahNmC0zRj2m6QxqQ1wLBFvzUo74KYRxbqiutVg7rVMCAiYXBsFTaaHb7nwVo00305E7PZH'
 
 @anvil.server.callable
 def process_payment(token, amount):
