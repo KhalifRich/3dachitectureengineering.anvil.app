@@ -33,6 +33,7 @@ def process_payment(token, amount):
             confirm=True,
         )
         return payment_intent.client_secret
+      
     except stripe.error.CardError as e:
         # Handle card errors
         return str(e)
