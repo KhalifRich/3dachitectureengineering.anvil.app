@@ -42,5 +42,8 @@ class Upload(UploadTemplate):
     def show_error_message(self, error):
         # Implement error message handling
         pass
-
-    pass
+  def button_subscribe_click(self, **event_args):
+        session_id = anvil.server.call('create_checkout_session')
+        # Redirect the user to the Stripe Checkout session
+        self.link_checkout.url = f'https://checkout.stripe.com/en/pay/{session_id}'
+pass
