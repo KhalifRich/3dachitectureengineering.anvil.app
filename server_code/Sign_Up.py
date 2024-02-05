@@ -52,7 +52,7 @@ class Sign_Up(Sign_UpTemplate):
       # In the Server Code section
 
 @anvil.server.callable
-def register_user(username, email, password):
+def new_user(username, email, password, confirmpassword):
     # Validate input
     if not username or not email or not password:
         raise ValueError("Please fill in all fields.")
