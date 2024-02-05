@@ -65,7 +65,7 @@ class Register(Upload.RegisterTemplate):
         self.clear_inputs()
 # In the Form Code section
 
-class Register(Upload.RegisterTemplate):
+class Sign_up(Upload.RegisterTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
 
