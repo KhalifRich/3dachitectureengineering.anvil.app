@@ -1,11 +1,9 @@
-# Servermodule1.py
-
 import anvil.server
 from anvil.tables import app_tables
 
-# Asynchronous server function for user registration
+# Server function for user registration
 @anvil.server.callable
-async def register_user_async(username, email, password):
+def register_user(username, email, password):
     try:
         # Check if username or email is already taken
         if app_tables.users.get(username=username) or app_tables.users.get(email=email):
