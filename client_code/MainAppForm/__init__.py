@@ -2,7 +2,7 @@
 from anvil import *
 import anvil.server
 
-# Define the register form class
+# Define the Register form class
 class Register(Upload.RegisterTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
@@ -19,7 +19,8 @@ class Register(Upload.RegisterTemplate):
         password = self.password_box.text
         confirm_password = self.confirm_password_box.text
         
-        anvil.server.call('new_user', first_name, second_name, email, phone, address, password, confirm_password)
+        # Call the server-side function to register the user
+        new_user = anvil.server.call('register_user', first_name, second_name, email, phone, address, password, confirm_password)
         
         Notification("You have successfully registered, You can now enjoy constructing and improve your post-modern architectural skills.", title="Thanks!").show()
 
@@ -87,6 +88,9 @@ class MainAppForm(Form):
         self.add_component(self.file_loader)
         self.add_component(self.upload_button)
         self.add_component(self.notification)
+
+        # Connect to the existing database and tables
+        self.users_table = anvil.server.database['users']  # Assuming 'users' is the name of the table
 
     # Event handler for upload button click
     def upload_button_click(self, **event_args):
