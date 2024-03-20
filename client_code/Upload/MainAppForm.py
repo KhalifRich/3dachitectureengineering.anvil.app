@@ -2,6 +2,73 @@
 from anvil import *
 import anvil.server
 
+# Define the register form class
+class Register(Upload.RegisterTemplate):
+    def __init__(self, **properties):
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
+
+        # Any code you write here will run before the form opens.
+
+    def submit_register_click(self, **event_args):
+        first_name = self.first_name_box.text
+        second_name = self.second_name_box.text
+        email = self.email_box.text
+        phone = self.phone_box.text
+        address = self.address_box.text
+        password = self.password_box.text
+        confirm_password = self.confirm_password_box.text
+        
+        anvil.server.call('new_user', first_name, second_name, email, phone, address, password, confirm_password)
+        
+        Notification("You have successfully registered, You can now enjoy constructing and improve your post-modern architectural skills.", title="Thanks!").show()
+
+        self.clear_inputs()
+
+# Define the Sign_In class
+class Sign_In(Sign_InTemplate):
+    def __init__(self, **properties):
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
+
+        # Any code you write here will run before the form opens.
+
+    def register_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        open_form('Register')
+        pass
+    
+    def sign_in_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        # Implement sign-in functionality
+        pass
+
+# Define the Upload class
+class Upload(UploadTemplate):
+    def __init__(self, **properties):
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
+        # Any code you write here will run before the form opens.
+
+    def subscribe_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        @anvil.server.callable
+        def create_checkout_session():
+            session = stripe.checkout.Session.create(
+                payment_method_types=['card'],
+                user_registration=[{
+                    'price': 'your_price_id',
+                }],
+                mode='payment',
+                success_url='https://3darchitectureengineering.anvil.app/success',
+                cancel_url='https://3darchitectureengineering.anvil.app/cancel',
+            )
+
+    def button_subscribe_click(self, **event_args):
+        session_id = anvil.server.call('create_checkout_session')
+        # Redirect the user to the Stripe Checkout session
+        self.link_checkout.url = f'https://checkout.stripe.com/en/pay/{session_id}'
+
 # Define the main form class for the app
 class MainAppForm(Form):
     def __init__(self, **properties):
@@ -45,15 +112,3 @@ class MainAppForm(Form):
             # Handle any errors that may occur during file upload or processing
             self.notification.text = f"An error occurred: {str(e)}"
             self.notification.show()
-
-# Define the next widget class for the app (replace this with your actual next widget class)
-class NextWidget(Form):
-    def __init__(self, **properties):
-        self.init_components(**properties)
-
-        # Design the layout of the next widget
-        # Add components and functionality as needed
-
-# Instantiate the main form and display it
-main_form = MainAppForm()
-main_form.show()
