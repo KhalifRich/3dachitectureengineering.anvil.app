@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+from anvil import open_form
 
 class Sign_In(Sign_InTemplate):
   def __init__(self, **properties):
@@ -16,26 +17,23 @@ class Sign_In(Sign_InTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def email_pressed_enter(self, **event_args):
-    """This method is called when the user presses Enter in this text box"""
-    pass
+  def sign_in_clicked(email, password):
+    # Validate email and password (e.g., check for empty fields)
+    if not email or not password:
+        alert("Please enter both email and password.")
+        return
 
-  def password_pressed_enter(self, **event_args):
-    """This method is called when the user presses Enter in this text box"""
-    pass
+    # Implement authentication logic (e.g., using Anvil Users service)
+    try:
+        user = app_tables.users.get(email=email)
+        if user['password'] == hash_password(password):
+            # Successful login
+            open_form('UploadForm')  # Open the home form upon successful login
+        else:
+            alert("Incorrect email or password.")
+    except:
+        alert("User does not exist.")
 
-  def email_pressed_enter(self, **event_args):
-    """This method is called when the user presses Enter in this text box"""
-    pass
-
-  def sign_in_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
-    # Any code you write here will run before the form opens.
-
-  def register_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    open_form('Register')
     pass
     
 
