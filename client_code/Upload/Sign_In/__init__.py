@@ -1,6 +1,7 @@
 from ._anvil_designer import Sign_InTemplate
-from anvil import open_form, alert, hash_password
+from anvil import open_form, alert
 from anvil.tables import app_tables
+from anvil.users import hash_password
 
 class Sign_In(Sign_InTemplate):
     def __init__(self, **properties):
