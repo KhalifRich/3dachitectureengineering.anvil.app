@@ -1,6 +1,7 @@
 # Import necessary Anvil modules
 from anvil import *
 import anvil.server
+from anvil import open_form
 
 # Define the Register form class
 class Register(Upload.RegisterTemplate):

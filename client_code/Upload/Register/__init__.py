@@ -8,76 +8,42 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from anvil import open_form
 
 
-class Register(Upload.RegisterTemplate):
+class RegistrationForm(RegistrationFormTemplate):
     def __init__(self, **properties):
-        # Set Form properties and Data Bindings.
+        # Set up this form
         self.init_components(**properties)
 
-        # Any code you write here will run before the form opens.
-    
-    def first_name_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
-        pass
-    
-    def second_name_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
-        pass
-    
-    def phone_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
-        pass
-    
-    def address_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
-        pass
-    
-    def email_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
-        pass
-    
-    def password_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
-        pass
-    
-    def confirm_password_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
-        pass
-    
-    def register_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        pass
-    
-    def submit_register_click(self, **event_args):
-        first_name = self.first_name_box.text
-        second_name = self.second_name_box.text
-        email = self.email_box.text
-        phone = self.phone_box.text
-        address = self.address_box.text
-        password = self.password_box.text
-        confirm_password = self.confirm_password_box.text
-        
-        anvil.server.call('new_user', first_name, second_name, email, phone, address, password, confirm_password)
-        
-        Notification("You have successfully registered, You can now enjoy constructing and improve your post-modern architectural skills.", title="Thanks!").show()
+    def button_register_click(self, **event_args):
+        # Retrieve user input
+        first_name = self.text_box_first_name.text
+        last_name = self.text_box_last_name.text
+        phone = self.text_box_phone.text
+        address = self.text_box_address.text
+        password = self.text_box_password.text
+        confirm_password = self.text_box_confirm_password.text
 
-        self.clear_inputs()
-# In the Form Code section
+        # Validate input
+        if not all([first_name, last_name, phone, address, password, confirm_password]):
+            alert("Please fill in all fields.")
+            return
 
-class Sign_up(Upload.RegisterTemplate):
-    def __init__(self, **properties):
-        self.init_components(**properties)
+        if password != confirm_password:
+            alert("Passwords do not match.")
+            return
 
-    def register_button_click(self, **event_args):
-        # Get user input
-        username = self.username_textbox.text
-        email = self.email_textbox.text
-        password = self.password_textbox.text
-
-        # Call the server-side function
+        # Create user (you would replace this with your actual user creation logic)
         try:
-            new_user = anvil.server.call('register_user', username, email, password)
-            print(f"User {new_user['username']} registered successfully!")
-        except Exception as e:
-            print(f"Registration failed: {str(e)}")
+            new_user = app_tables.users.add_row(
+                first_name=first_name,
+                last_name=last_name,
+                phone=phone,
+                address=address,
+                password=hash_password(password)  # You should hash passwords for security
+            )
+            # Open the home form upon successful registration
+            open_form('UploadForm')
+        except:
+            alert("Error registering user. Please try again.")

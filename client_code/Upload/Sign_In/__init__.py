@@ -33,6 +33,9 @@ class Sign_In(Sign_InTemplate):
             alert("Incorrect email or password.")
     except:
         alert("User does not exist.")
+          def button_register_click(self, **event_args):
+        # Open the registration form
+        open_form('RegistrationForm')
 
     pass
     
