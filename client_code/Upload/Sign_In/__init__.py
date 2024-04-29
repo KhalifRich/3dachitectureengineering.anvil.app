@@ -23,4 +23,4 @@ class Sign_In(Sign_InTemplate):
 
     def button_register_click(self, **event_args):
         # Open the registration form
-        open_form('RegistrationForm')
+        open_form('RegisterForm')
