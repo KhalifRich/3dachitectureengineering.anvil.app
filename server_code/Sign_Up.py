@@ -11,7 +11,7 @@ from anvil.tables import app_tables
 from anvil import app_tables
 
 
-class Sign_Up(Sign_UpTemplate):
+class register(Sign_UpTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
@@ -46,7 +46,7 @@ class Sign_Up(Sign_UpTemplate):
         """This method is called when the user presses Enter in this text box"""
         pass
     
-    def sign_up_click(self, **event_args):
+    def register_click(self, **event_args):
         """This method is called when the button is clicked"""
         pass
       # In the Server Code section
@@ -70,7 +70,7 @@ def new_user(username, email, password, confirmpassword):
     return new_user
 
     
-    def submit_sign_up_click(self, **event_args):
+    def submit_register_click(self, **event_args):
         first_name = self.first_name_box.text
         second_name = self.second_name_box.text
         email = self.email_box.text

@@ -1,3 +1,4 @@
+import anvil.server
 from ._anvil_designer import Sign_InTemplate
 from anvil import open_form, alert
 from anvil.tables import app_tables

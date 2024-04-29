@@ -6,6 +6,7 @@ unique_ids:
   modules: {}
   server_modules:
     ServerModule1: '1706026268971758447627845.6134'
+    ServerModule2: '1714407789679106443925309.48221'
     Sign_Up: '1704985458902871550430228.7562'
   assets:
     dashboard.html: OXDELNECB67VAYB44K7MKKPOUK3LPDLG
