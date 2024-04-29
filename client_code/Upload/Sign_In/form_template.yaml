@@ -2,7 +2,7 @@ is_package: true
 container:
   type: HtmlTemplate
   properties: {html: '@theme:single-column.html', background: 'theme:Accent 1', foreground: 'theme:Accent
-      2'}
+      2', visible: true}
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
@@ -10,17 +10,17 @@ components:
   layout_properties: {slot: default}
   components:
   - type: TextBox
-    properties: {text: email}
+    properties: {text: email, enabled: true}
     name: email
     layout_properties: {grid_position: 'QTZJRK,IPMKLS'}
     event_bindings: {pressed_enter: text_box_1_pressed_enter}
   - type: TextBox
-    properties: {text: password}
+    properties: {text: password, enabled: true}
     name: password
     layout_properties: {grid_position: 'EKJBME,KUHMVE'}
     event_bindings: {pressed_enter: text_box_2_pressed_enter}
   - type: Button
-    properties: {text: Sign in}
+    properties: {text: sign in, enabled: true}
     name: sign_in_button
     layout_properties: {grid_position: 'LOSGXJ,NCFCXT', slot: title}
     event_bindings: {click: button_1_click}
@@ -30,7 +30,7 @@ components:
     layout_properties: {grid_position: 'BKALJP,WUZFCV'}
     data_bindings: []
   - name: button_2
-    properties: {text: Register}
+    properties: {text: register, enabled: true}
     type: Button
     layout_properties: {grid_position: 'JUDDNJ,KRNUWS'}
     event_bindings: {click: button_2_click}
