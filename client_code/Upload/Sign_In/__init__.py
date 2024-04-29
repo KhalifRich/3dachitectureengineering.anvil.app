@@ -25,14 +25,14 @@ class Sign_In(Sign_InTemplate):
         # Open the registration form
         open_form('RegisterForm')
        # Implementing missing event handlers
-    def text_box_1_pressed_enter(self, **event_args):
+    def email_pressed_enter(self, **event_args):
         pass
 
-    def text_box_2_pressed_enter(self, **event_args):
+    def password_pressed_enter(self, **event_args):
         pass
 
-    def button_1_click(self, **event_args):
+    def sign_in_click(self, **event_args):
         pass
 
-    def button_2_click(self, **event_args):
+    def register_click(self, **event_args):
         pass

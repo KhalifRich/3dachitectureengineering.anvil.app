@@ -11,7 +11,7 @@ from anvil.tables import app_tables
 from anvil import open_form
 
 
-class RegistrationForm(RegistrationFormTemplate):
+class RegisterForm(RegisterFormFormTemplate):
     def __init__(self, **properties):
         # Set up this form
         self.init_components(**properties)
