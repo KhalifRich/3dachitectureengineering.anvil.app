@@ -14,7 +14,7 @@ def register_user(username, email, password):
 
         # Store user information in the database
         new_user = app_tables.users.add_row(username=username, email=email, password=hashed_password)
-
+        anvil.server.wait_forever()
         return new_user
     except Exception as e:
         # Handle registration errors
