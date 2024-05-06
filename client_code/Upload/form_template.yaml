@@ -25,3 +25,4 @@ components:
 custom_component: true
 properties:
 - {name: prop, type: string, default_value: '', important: true, default_binding_prop: true}
+- {name: prop_2, type: string, default_value: '', important: true}
