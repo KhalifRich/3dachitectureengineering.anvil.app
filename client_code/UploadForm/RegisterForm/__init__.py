@@ -1,4 +1,4 @@
-from ._anvil_designer import RegisterTemplate
+from ._anvil_designer import RegisterFormTemplate
 from anvil import *
 import anvil.server
 import stripe.checkout
@@ -11,7 +11,7 @@ from anvil.tables import app_tables
 from anvil import open_form
 
 
-class RegisterForm(RegisterFormFormTemplate):
+class RegisterForm(RegisterFormTemplate):
     def __init__(self, **properties):
         # Set up this form
         self.init_components(**properties)

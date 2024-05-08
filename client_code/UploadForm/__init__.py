@@ -1,4 +1,4 @@
-from ._anvil_designer import UploadTemplate
+from ._anvil_designer import UploadFormTemplate
 from anvil import open_form, alert, Button, FileLoader, Label, Notification
 import stripe.checkout
 import anvil.google.auth, anvil.google.drive

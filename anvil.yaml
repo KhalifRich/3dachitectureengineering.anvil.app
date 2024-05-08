@@ -13,7 +13,7 @@ services:
 - source: /runtime/services/stripe.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: Upload.Sign_In}
+startup: {type: form, module: UploadForm.SignInForm}
 package_name: _3dachitectureengineering
 allow_embedding: true
 name: 3dachitectureengineering

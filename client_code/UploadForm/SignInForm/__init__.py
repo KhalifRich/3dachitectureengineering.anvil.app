@@ -1,9 +1,9 @@
 import anvil.server
-from ._anvil_designer import Sign_InTemplate
+from ._anvil_designer import SignInFormTemplate
 from anvil import open_form, alert
 from anvil.tables import app_tables
 
-class Sign_In(Sign_InTemplate):
+class SignInForm(SignInFormTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
