@@ -46,7 +46,7 @@ class UploadForm(UploadTemplate):
                 self.remove_from_parent()
 
                 # Display the next widget (replace WidgetClass with the class of your next widget)
-                next_widget = WidgetClass()
+                next_widget = UploadForm()
                 next_widget.show()
             else:
                 self.notification.text = "Please select a file to upload."
