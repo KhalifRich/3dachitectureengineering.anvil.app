@@ -10,7 +10,7 @@ from anvil.tables import app_tables
 import anvil.server
 
 # Define the main form class for the app
-class UploadForm(UploadTemplate):
+class UploadForm(UploadFormTemplate):
     def __init__(self, **properties):
         # Set the properties of the form
         self.init_components(**properties)
@@ -46,7 +46,7 @@ class UploadForm(UploadTemplate):
                 self.remove_from_parent()
 
                 # Display the next widget (replace WidgetClass with the class of your next widget)
-                next_widget = UploadForm()
+                next_widget = UploadFormTemplate()
                 next_widget.show()
             else:
                 self.notification.text = "Please select a file to upload."
@@ -57,7 +57,7 @@ class UploadForm(UploadTemplate):
             self.notification.show()
 
 # Define the Upload class
-class Upload(UploadTemplate):
+class Upload(UploadFormTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
