@@ -44,6 +44,8 @@ class RegisterForm(RegisterFormTemplate):
                 password=hash_password(password)  # You should hash passwords for security
             )
             # Open the home form upon successful registration
+           # Transition to the next form (if needed)
+            open_form('NextForm')
             open_form('UploadForm')
         except:
             alert("Error registering user. Please try again.")
