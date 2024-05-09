@@ -37,3 +37,7 @@ class SignInForm(SignInFormTemplate):
 
     def register_click(self, **event_args):
         pass
+
+    def button_2_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass
