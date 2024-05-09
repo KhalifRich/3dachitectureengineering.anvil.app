@@ -10,7 +10,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil import open_form
 
-
+def register_click(self, **event_args):
+    """This method is called when the button is clicked"""
 class RegisterForm(RegisterFormTemplate):
     def __init__(self, **properties):
         # Set up this form
@@ -49,3 +50,4 @@ class RegisterForm(RegisterFormTemplate):
             open_form('UploadForm')
         except:
             alert("Error registering user. Please try again.")
+        pass

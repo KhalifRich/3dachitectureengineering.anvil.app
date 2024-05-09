@@ -40,3 +40,4 @@ components:
     properties: {text: Register}
     type: Button
     layout_properties: {grid_position: 'YGGEJK,RKODSS'}
+    event_bindings: {click: register_click}
