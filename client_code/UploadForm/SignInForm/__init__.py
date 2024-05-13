@@ -2,6 +2,9 @@ import anvil.server
 from ._anvil_designer import SignInFormTemplate
 from anvil import open_form, alert
 from anvil.tables import app_tables
+from anvil import open_form, js
+# This code should be placed in your client-side code (e.g., in the Main Form's code behind)
+from anvil import open_form, js
 
 class SignInForm(SignInFormTemplate):
     def __init__(self, **properties):
@@ -22,6 +25,13 @@ class SignInForm(SignInFormTemplate):
         else:
             alert("Incorrect email or password.")
 
+# Function to handle opening the sign-in form
+def open_sign_in_form():
+    open_form('SignInForm')
+
+# Linking button click event to JavaScript function
+def button_sign_in_click(self, **event_args):
+    js.open_sign_in_form()
     def button_register_click(self, **event_args):
         # Open the registration form
         open_form('RegisterForm')
@@ -35,9 +45,12 @@ class SignInForm(SignInFormTemplate):
     def sign_in_click(self, **event_args):
         pass
 
-    def register_click(self, **event_args):
+    def button_2_click_click(self, **event_args):
         pass
 
     def button_2_click(self, **event_args):
       """This method is called when the button is clicked"""
+      def handle_registration():
+    # Open the registration form
+    open_form('RegisterForm')
       pass

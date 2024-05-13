@@ -1,3 +1,4 @@
+import anvil.server
 # Import necessary modules
 from anvil import open_form, alert, Link
 import anvil.users

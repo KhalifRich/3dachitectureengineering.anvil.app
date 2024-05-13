@@ -10,44 +10,35 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil import open_form
 
-def register_click(self, **event_args):
-    """This method is called when the button is clicked"""
-class RegisterForm(RegisterFormTemplate):
-    def __init__(self, **properties):
-        # Set up this form
-        self.init_components(**properties)
 
-    def button_register_click(self, **event_args):
-        # Retrieve user input
-        first_name = self.text_box_first_name.text
-        last_name = self.text_box_last_name.text
-        phone = self.text_box_phone.text
-        address = self.text_box_address.text
-        password = self.text_box_password.text
-        confirm_password = self.text_box_confirm_password.text
+    def first_name_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
 
-        # Validate input
-        if not all([first_name, last_name, phone, address, password, confirm_password]):
-            alert("Please fill in all fields.")
-            return
+    def second_name_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
 
-        if password != confirm_password:
-            alert("Passwords do not match.")
-            return
+    def phone_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
 
-        # Create user (you would replace this with your actual user creation logic)
-        try:
-            new_user = app_tables.users.add_row(
-                first_name=first_name,
-                last_name=last_name,
-                phone=phone,
-                address=address,
-                password=hash_password(password)  # You should hash passwords for security
-            )
-            # Open the home form upon successful registration
-           # Transition to the next form (if needed)
-            open_form('NextForm')
-            open_form('UploadForm')
-        except:
-            alert("Error registering user. Please try again.")
-        pass
+    def address_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def email_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def password_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def confirm_password_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def register_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass
