@@ -10,7 +10,6 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from anvil import open_form
 
-
     def first_name_pressed_enter(self, **event_args):
       """This method is called when the user presses Enter in this text box"""
       pass
