@@ -1,9 +1,6 @@
 # Import necessary modules
-import anvil.server
 from ._anvil_designer import SignInFormTemplate
-from anvil import open_form, alert
-from anvil.tables import app_tables
-from anvil import open_form, js
+from anvil import open_form, alert, js
 
 # Class definition for SignInForm
 class SignInForm(SignInFormTemplate):
@@ -18,13 +15,21 @@ class SignInForm(SignInFormTemplate):
             alert("Please enter both email and password.")
             return
 
-        # Implement authentication logic (e.g., using Anvil Users service)
-        user = app_tables.users.get(email=email)
-        if user and user['password'].check_password(password):
+        # Call the server function to authenticate the user
+        user_authenticated = self.authenticate_user(email, password)
+        if user_authenticated:
             # Successful login
             open_form('UploadForm')  # Open the home form upon successful login
         else:
             alert("Incorrect email or password.")
+
+    # Server function to authenticate the user
+    def authenticate_user(self, email, password):
+        user = app_tables.users.get(email=email)
+        if user and user['password'].check_password(password):
+            return True  # Authentication successful
+        else:
+            return False  # Authentication failed
 
     # Function to handle opening the sign-in form
     def open_sign_in_form(self):
@@ -51,10 +56,12 @@ class SignInForm(SignInFormTemplate):
 
         # Attempt to sign in the user
         try:
-            user = app_tables.users.get(email=email)
-            
-            # If the user exists, do something (e.g., navigate to another form)
-            open_form('UploadForm')  # Replace 'HomeForm' with the name of your home form
+            user_authenticated = self.authenticate_user(email, password)
+            if user_authenticated:
+                # Successful login
+                open_form('UploadForm')  # Open the home form upon successful login
+            else:
+                alert("User does not exist. Please check your email or sign up.")
         except anvil.users.NoSuchUserError:
             # If the user does not exist, display an error message
             alert("User does not exist. Please check your email or sign up.")
@@ -88,4 +95,8 @@ class SignInForm(SignInFormTemplate):
 
     def button_2_show(self, **event_args):
       """This method is called when the Button is shown on the screen"""
+      pass
+
+    def text_box_1_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
       pass

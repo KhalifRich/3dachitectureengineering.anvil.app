@@ -4,9 +4,9 @@ from anvil.google.drive import app_files
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
-from anvil.tables import app_tables
-import anvil.server
-
+from ._anvil_designer import SignInFormTemplate
+from anvil import open_form, alert, js
+# Import necessary modules
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
 #
