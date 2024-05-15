@@ -70,7 +70,7 @@ class SignInForm(SignInFormTemplate):
 
     def button_2_click(self, **event_args):
       """This method is called when the button is clicked"""
-      open_form('Sign_UpForm')
+      
       pass
 
     def form_show(self, **event_args):

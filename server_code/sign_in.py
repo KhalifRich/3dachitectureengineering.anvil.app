@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from ._anvil_designer import SignInFormTemplate
 from anvil import open_form, alert, js
+
 # Import necessary modules
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -30,4 +31,5 @@ def authenticate_user(username_or_email, password):
     if username_or_email == 'test_user' and password == 'password123':
         return True
     else:
+        open_form('Sign_UpForm')
         raise Exception('Invalid username/email or password')
