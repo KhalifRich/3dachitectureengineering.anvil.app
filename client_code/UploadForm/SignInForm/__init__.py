@@ -35,7 +35,7 @@ class SignInForm(SignInFormTemplate):
         js.open_sign_in_form()
 
     # Method to handle enter key press in username text box
-    def text_box_1_pressed_enter(self, **event_args):
+    def text_box_1__click(self, **event_args):
         """This method is called when the user presses Enter in the username text box"""
         # Fetch the username entered by the user
         username = self.text_box_1.text
@@ -44,7 +44,7 @@ class SignInForm(SignInFormTemplate):
         self.text_box_2.focus()
 
     # Method to handle enter key press in email text box
-    def text_box_2_pressed_enter(self, **event_args):
+    def text_box_2__click(self, **event_args):
         """This method is called when the user presses Enter in the email text box"""
         # Fetch the email entered by the user
         email = self.text_box_2.text
@@ -60,3 +60,8 @@ class SignInForm(SignInFormTemplate):
             alert("User does not exist. Please check your email or sign up.")
 
     # Other code remains unchanged
+
+    def button_2_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('Sign_UpForm')
+      pass
