@@ -65,3 +65,27 @@ class SignInForm(SignInFormTemplate):
       """This method is called when the button is clicked"""
       open_form('Sign_UpForm')
       pass
+
+    def form_show(self, **event_args):
+      """This method is called when the form is shown on the page"""
+      pass
+
+    def text_box_2_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def email_show(self, **event_args):
+      """This method is called when the TextBox is shown on the screen"""
+      pass
+
+    def password_show(self, **event_args):
+      """This method is called when the TextBox is shown on the screen"""
+      pass
+
+    def button_1_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass
+
+    def button_2_show(self, **event_args):
+      """This method is called when the Button is shown on the screen"""
+      pass
