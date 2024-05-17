@@ -1,3 +1,4 @@
+import anvil.server
 # Import necessary modules
 from ._anvil_designer import SignInFormTemplate
 from anvil import open_form, alert, js

@@ -1,14 +1,6 @@
-from ._anvil_designer import UploadFormTemplate
-from anvil import open_form, alert, Button, FileLoader, Label, Notification
-import stripe.checkout
-import anvil.google.auth, anvil.google.drive
-from anvil.google.drive import app_files
-import anvil.users
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
 import anvil.server
-
+from ._anvil_designer import UploadFormTemplate
+from anvil import open_form
 # Define the main form class for the app
 class UploadForm(UploadFormTemplate):
     def __init__(self, **properties):
@@ -57,6 +49,18 @@ class UploadForm(UploadFormTemplate):
             self.notification.show()
 
 # Define the Upload class
+
+    def subscribe_show(self, **event_args):
+      """This method is called when the Button is shown on the screen"""
+      pass
+
+    def file_loader_1_show(self, **event_args):
+      """This method is called when the FileLoader is shown on the screen"""
+      pass
+
+    def file_loader_1_change(self, file, **event_args):
+      """This method is called when a new file is loaded into this FileLoader"""
+      pass
 class Upload(UploadFormTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.

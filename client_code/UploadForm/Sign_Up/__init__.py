@@ -1,14 +1,5 @@
-from ._anvil_designer import Sign_UpTemplate
-from anvil import *
 import anvil.server
-import stripe.checkout
-import anvil.google.auth
-import anvil.google.drive
-from anvil.google.drive import app_files
-import anvil.users
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
+from ._anvil_designer import Sign_UpTemplate
 from anvil import open_form
 
 class Sign_Up(Sign_UpTemplate):

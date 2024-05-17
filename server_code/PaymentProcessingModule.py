@@ -1,9 +1,19 @@
 # Import necessary modules
+from ._anvil_designer import UploadFormTemplate
+from anvil import open_form, alert, Button, FileLoader, Label, Notification
+import stripe.checkout
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
+import anvil.server
 from anvil import open_form
 import stripe
 
 # Set your Stripe API key
-stripe.api_key = "YOUR_STRIPE_API_KEY"
+stripe.api_key = "pk_live_51OVEBOJSA1HIvKzyhEGFtfRsONEJamAarke1ATOOWUArEtao908p1R0l4VtBZiTCsNfpWSqOpuYo0e41P63gGMwC00iTLg0sNK"
 
 # Define the CheckoutForm class
 class CheckoutForm(StripeCheckoutFormTemplate):
