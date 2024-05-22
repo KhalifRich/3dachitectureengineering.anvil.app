@@ -76,6 +76,19 @@ class Upload(UploadFormTemplate):
         """This method is called when the button is clicked"""
         # Implement sign-in functionality
         pass
+      # In TileForm
+class TileForm(TileFormTemplate):
+    def __init__(self, **properties):
+        self.init_components(**properties)
+
+    def form_show(self, **event_args):
+        # This method is called when the form is shown on the screen
+        self.image_1.source = self.item['image']
+        self.label_1.text = self.item['name']
+    
+    def button_1_click(self, **event_args):
+        # Booking logic here
+        alert(f"Booking {self.item['name']}")
 
     def subscribe_click(self, **event_args):
         """This method is called when the button is clicked"""
