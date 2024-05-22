@@ -67,10 +67,10 @@ class Upload(UploadFormTemplate):
         self.init_components(**properties)
         # Any code you write here will run before the form opens.
           # In UploadForm
-class UploadFormForm(UploadFormTemplate):
+class UploadForm(UploadFormTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
-        self.repeating_panel_1.item_template = UploadFormTemplateForm
+        self.repeating_panel_1.item_template = UploadTemplateForm
 
         # Initialize an empty list to store 3D object info
         self.objects_list = []
