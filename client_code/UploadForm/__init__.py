@@ -66,6 +66,25 @@ class Upload(UploadFormTemplate):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         # Any code you write here will run before the form opens.
+          # In UploadForm
+class UploadFormForm(UploadFormTemplate):
+    def __init__(self, **properties):
+        self.init_components(**properties)
+        self.repeating_panel_1.item_template = UploadFormTemplateForm
+
+        # Initialize an empty list to store 3D object info
+        self.objects_list = []
+
+    def file_loader_1_change(self, file, **event_args):
+        # Handle file upload, assuming file contains 3D object info
+        # Here you might want to process the file and extract necessary info
+        # For demonstration, we will just use a placeholder image and name
+        new_object = {
+            'image': 'https://via.placeholder.com/150',  # Placeholder image
+            'name': file.name
+        }
+        self.objects_list.append(new_object)
+        self.repeating_panel_1.items = self.objects_list
 
     def register_click(self, **event_args):
         """This method is called when the button is clicked"""
@@ -77,7 +96,7 @@ class Upload(UploadFormTemplate):
         # Implement sign-in functionality
         pass
       # In TileForm
-class TileForm(TileFormTemplate):
+class UploadForm(UploadFormTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
 
@@ -86,8 +105,24 @@ class TileForm(TileFormTemplate):
         self.image_1.source = self.item['image']
         self.label_1.text = self.item['name']
     
-    def button_1_click(self, **event_args):
+    def download_click(self, **event_args):
         # Booking logic here
+      def create_checkout_session():
+            session = stripe.checkout.Session.create(
+                payment_method_types=['card'],
+                user_registration=[{
+                    'price': 'your_price_id',
+                }],
+                mode='payment',
+                success_url='https://3darchitectureengineering.anvil.app/success',
+                cancel_url='https://3darchitectureengineering.anvil.app/cancel',
+            )
+
+    def button_subscribe_click(self, **event_args):
+        session_id = anvil.server.call('create_checkout_session')
+        # Redirect the user to the Stripe Checkout session
+        self.link_checkout.url = f'https://checkout.stripe.com/en/pay/{session_id}'
+
         alert(f"Booking {self.item['name']}")
 
     def subscribe_click(self, **event_args):
