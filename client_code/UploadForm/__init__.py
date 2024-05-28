@@ -24,9 +24,11 @@ class UploadForm(UploadFormTemplate):
         # Connect to the existing database and tables
         self.users_table = anvil.server.database['users']  # Assuming 'users' is the name of the table
 
+        # Set event handler for upload button click
+        self.upload_button.set_event_handler("click", self.upload_button_click)
+
     # Event handler for upload button click
     def upload_button_click(self, **event_args):
-      self.upload_button.set_event_handler("click", self.upload_button_click)
         try:
             # Get the uploaded file data
             file_data = self.file_loader.file
@@ -57,8 +59,8 @@ class UploadForm(UploadFormTemplate):
         pass  # Implement functionality if needed
 
     def subscribe_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      pass
+        """This method is called when the button is clicked"""
+        pass
 
 class Upload(UploadFormTemplate):
     def __init__(self, **properties):
