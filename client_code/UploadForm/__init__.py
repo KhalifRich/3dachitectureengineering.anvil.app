@@ -1,6 +1,8 @@
 import anvil.server
 from ._anvil_designer import UploadFormTemplate
 from anvil import open_form
+from anvil import Label, FileLoader, Button, Notification
+
 # Define the main form class for the app
 class UploadForm(UploadFormTemplate):
     def __init__(self, **properties):
@@ -34,12 +36,8 @@ class UploadForm(UploadFormTemplate):
                 self.notification.text = "File uploaded successfully!"
                 self.notification.show()
 
-                # Remove the current form from the UI
-                self.remove_from_parent()
-
-                # Display the next widget (replace WidgetClass with the class of your next widget)
-                next_widget = UploadFormTemplate()
-                next_widget.show()
+                # Transition to the next form
+                open_form('NextForm')  # Replace 'NextForm' with the actual name of your next form
             else:
                 self.notification.text = "Please select a file to upload."
                 self.notification.show()
@@ -48,36 +46,26 @@ class UploadForm(UploadFormTemplate):
             self.notification.text = f"An error occurred: {str(e)}"
             self.notification.show()
 
-# Define the Upload class
-
+    # Event handlers for other components (if needed)
     def subscribe_show(self, **event_args):
-      """This method is called when the Button is shown on the screen"""
-      pass
+        pass  # Implement functionality if needed
 
     def file_loader_1_show(self, **event_args):
-      """This method is called when the FileLoader is shown on the screen"""
-      pass
+        pass  # Implement functionality if needed
 
     def file_loader_1_change(self, file, **event_args):
-      """This method is called when a new file is loaded into this FileLoader"""
-      pass
+        pass  # Implement functionality if needed
+
 class Upload(UploadFormTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
-        # Any code you write here will run before the form opens.
-          # In UploadForm
-class UploadForm(UploadFormTemplate):
-    def __init__(self, **properties):
-        self.init_components(**properties)
-        self.repeating_panel_1.item_template = UploadTemplateForm
 
         # Initialize an empty list to store 3D object info
         self.objects_list = []
 
     def file_loader_1_change(self, file, **event_args):
         # Handle file upload, assuming file contains 3D object info
-        # Here you might want to process the file and extract necessary info
         # For demonstration, we will just use a placeholder image and name
         new_object = {
             'image': 'https://via.placeholder.com/150',  # Placeholder image
@@ -87,59 +75,35 @@ class UploadForm(UploadFormTemplate):
         self.repeating_panel_1.items = self.objects_list
 
     def register_click(self, **event_args):
-        """This method is called when the button is clicked"""
         open_form('Register')
-        pass
-    
+
     def sign_in_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        # Implement sign-in functionality
-        pass
-      # In TileForm
-class UploadForm(UploadFormTemplate):
+        pass  # Implement sign-in functionality
+
+class TileForm(UploadFormTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
 
     def form_show(self, **event_args):
-        # This method is called when the form is shown on the screen
         self.image_1.source = self.item['image']
         self.label_1.text = self.item['name']
     
     def download_click(self, **event_args):
-        # Booking logic here
-      def create_checkout_session():
-            session = stripe.checkout.Session.create(
-                payment_method_types=['card'],
-                user_registration=[{
-                    'price': 'your_price_id',
-                }],
-                mode='payment',
-                success_url='https://3darchitectureengineering.anvil.app/success',
-                cancel_url='https://3darchitectureengineering.anvil.app/cancel',
-            )
+        pass  # Booking logic here
+
+    def create_checkout_session(self):
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            user_registration=[{
+                'price': 'your_price_id',
+            }],
+            mode='payment',
+            success_url='https://3darchitectureengineering.anvil.app/success',
+            cancel_url='https://3darchitectureengineering.anvil.app/cancel',
+        )
+        return session.id
 
     def button_subscribe_click(self, **event_args):
         session_id = anvil.server.call('create_checkout_session')
-        # Redirect the user to the Stripe Checkout session
         self.link_checkout.url = f'https://checkout.stripe.com/en/pay/{session_id}'
-
         alert(f"Booking {self.item['name']}")
-
-    def subscribe_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        @anvil.server.callable
-        def create_checkout_session():
-            session = stripe.checkout.Session.create(
-                payment_method_types=['card'],
-                user_registration=[{
-                    'price': 'your_price_id',
-                }],
-                mode='payment',
-                success_url='https://3darchitectureengineering.anvil.app/success',
-                cancel_url='https://3darchitectureengineering.anvil.app/cancel',
-            )
-
-    def button_subscribe_click(self, **event_args):
-        session_id = anvil.server.call('create_checkout_session')
-        # Redirect the user to the Stripe Checkout session
-        self.link_checkout.url = f'https://checkout.stripe.com/en/pay/{session_id}'
