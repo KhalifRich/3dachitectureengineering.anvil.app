@@ -13,7 +13,6 @@ class UploadForm(UploadFormTemplate):
         self.title_label = Label(text="3D Architecture Engineering Research App", font=("Arial", 20))
         self.file_loader = FileLoader(accept=".fbx, .stl, .iges, .obj, .collada, .step, .3ds")
         self.upload_button = Button(text="Upload File", role="primary", icon="fa:upload")
-        self.upload_button.set_event_handler("click", self.upload_button_click)
         self.notification = Notification()
 
         # Add components to the form
@@ -27,6 +26,7 @@ class UploadForm(UploadFormTemplate):
 
     # Event handler for upload button click
     def upload_button_click(self, **event_args):
+      self.upload_button.set_event_handler("click", self.upload_button_click)
         try:
             # Get the uploaded file data
             file_data = self.file_loader.file
@@ -55,6 +55,10 @@ class UploadForm(UploadFormTemplate):
 
     def file_loader_1_change(self, file, **event_args):
         pass  # Implement functionality if needed
+
+    def subscribe_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass
 
 class Upload(UploadFormTemplate):
     def __init__(self, **properties):

@@ -290,7 +290,26 @@
     <div class="container">
         <h1 id="title_label" class="text-center">3D Architecture Engineering Research App</h1>
         <input type="file" id="file_loader" accept=".fbx, .stl, .iges, .obj, .collada, .step, .3ds" class="form-control my-3">
-        <button id="upload_button" class="btn btn-primary btn-block"><i class="fa fa-upload"></i> Upload File</button>
+        <button id="upload_button" class="btn btn-primary btn-block"><!-- This is your custom HTML template in your Anvil form -->
+<div id="upload_form_container">
+    <!-- Your form components will be rendered here -->
+    <script>
+        // Ensure that the script runs only after the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the upload button by its ID or class
+            var uploadButton = document.querySelector('.your-upload-button-class');
+            
+            if (uploadButton) {
+                uploadButton.addEventListener('click', function () {
+                    // Your custom event handler logic here
+                    console.log('Upload button clicked');
+                });
+            } else {
+                console.error('Upload button not found');
+            }
+        });
+    </script>
+</div><i class="fa fa-upload"></i> Upload File</button>
         <div id="notification" class="alert alert-info mt-3" style="display: none;"></div>
     </div>
     <script src="https://anvil.works/ide/client/ide/assets/anvil-runtime.js"></script>
