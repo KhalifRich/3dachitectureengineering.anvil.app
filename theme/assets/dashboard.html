@@ -236,7 +236,69 @@
             <div anvil-if-slot-empty="default"
                  anvil-drop-slot="default"
                  class="placeholder">
-                 Drop a ColumnPanel here to add content
+                 <!DOCTYPE html>
+<html lang="en">
+  $(document).ready(function() {
+    // Event handler for the upload button click
+    $('#upload_button').click(function() {
+        var fileInput = $('#file_loader')[0];
+        var file = fileInput.files[0];
+        
+        if (file) {
+            // Display a success notification
+            $('#notification').text('File uploaded successfully!').show();
+            
+            // Simulate form transition (replace this with actual form navigation logic)
+            alert('Transitioning to the next form...');
+            
+            // Example of opening another form
+            // In Anvil, you'd use open_form('NextForm') in Python
+            // Here we just clear the form for demonstration
+            $('form').hide();
+            // Optionally, show the next form or reload/redirect
+            // location.href = 'next_form.html'; // Example for a real navigation
+        } else {
+            // Display an error notification
+            $('#notification').text('Please select a file to upload.').show();
+        }
+    });
+});
+<head>
+    <meta charset="UTF-8">
+    <title>3D Architecture Engineering Research App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  $(document).ready(function() {
+    $('#upload_button').click(function() {
+        var fileInput = $('#file_loader')[0];
+        var file = fileInput.files[0];
+        
+        if (file) {
+            // Call the server function to process the file
+            anvil.server.call('process_file', file).then(function(response) {
+                $('#notification').text('File uploaded successfully!').show();
+                open_form('NextForm'); // Adjust as necessary
+            }).catch(function(error) {
+                $('#notification').text('An error occurred: ' + error.message).show();
+            });
+        } else {
+            $('#notification').text('Please select a file to upload.').show();
+        }
+    });
+});
+    <div class="container">
+        <h1 id="title_label" class="text-center">3D Architecture Engineering Research App</h1>
+        <input type="file" id="file_loader" accept=".fbx, .stl, .iges, .obj, .collada, .step, .3ds" class="form-control my-3">
+        <button id="upload_button" class="btn btn-primary btn-block"><i class="fa fa-upload"></i> Upload File</button>
+        <div id="notification" class="alert alert-info mt-3" style="display: none;"></div>
+    </div>
+    <script src="https://anvil.works/ide/client/ide/assets/anvil-runtime.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
             </div>
     
             <div anvil-slot="default"></div>
