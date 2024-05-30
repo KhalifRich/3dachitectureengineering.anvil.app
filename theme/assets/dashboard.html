@@ -224,6 +224,53 @@
         <div class="sidebar" anvil-drop-redirect=">.drop-here">
             <div anvil-slot-repeat="sidebar" class="sidebar-elt">
                 <div anvil-drop-here class="drop-here"></div>
+              <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+</head>
+<body>
+    <form id="sign-in-form">
+        <label for="txtUsernameOrEmail">Username or Email:</label>
+        <input type="text" id="txtUsernameOrEmail" name="usernameOrEmail">
+        <br>
+        <label for="txtPassword">Password:</label>
+        <input type="password" id="txtPassword" name="password">
+        <br>
+        <button type="button" id="button_sign_in">Sign In</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to sign in
+            function signIn() {
+                // Get values from input fields
+                var usernameOrEmail = document.getElementById("txtUsernameOrEmail").value;
+                var password = document.getElementById("txtPassword").value;
+
+                // Call server-side function to authenticate user
+                anvil.server.call('authenticate_user', usernameOrEmail, password)
+                    .then(function(response) {
+                        alert('Sign in successful!');
+                        // Optionally, you can redirect the user to another page or perform other actions
+                    })
+                    .catch(function(error) {
+                        alert('Error signing in: ' + error);
+                    });
+            }
+
+            // Event listener for the sign-in button click
+            var signInButton = document.getElementById("button_sign_in");
+            if (signInButton) {
+                signInButton.addEventListener("click", function() {
+                    signIn();
+                });
+            } else {
+                console.error("Element with ID 'button_sign_in' not found.");
+            }
+        });
+    </script>
+</body>
                 <div anvil-slot class="content"></div>
             </div>
             <div class="sidebar-elt anvil-designer-only drop-here" anvil-drop-slot="sidebar">
@@ -238,6 +285,7 @@
                  class="placeholder">
                  <!DOCTYPE html>
 <html lang="en">
+  <script>
   $(document).ready(function() {
     // Event handler for the upload button click
     $('#upload_button').click(function() {
@@ -263,12 +311,14 @@
         }
     });
 });
+    </script>
 <head>
     <meta charset="UTF-8">
     <title>3D Architecture Engineering Research App</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+  <script>
   $(document).ready(function() {
     $('#upload_button').click(function() {
         var fileInput = $('#file_loader')[0];
@@ -287,6 +337,7 @@
         }
     });
 });
+    </script>
     <div class="container">
         <h1 id="title_label" class="text-center">3D Architecture Engineering Research App</h1>
         <input type="file" id="file_loader" accept=".fbx, .stl, .iges, .obj, .collada, .step, .3ds" class="form-control my-3">
