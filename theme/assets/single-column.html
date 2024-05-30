@@ -127,6 +127,8 @@
 
         <div anvil-slot="default"></div>
       <script>
+   document.addEventListener('DOMContentLoaded', function() {
+    // Function to sign in
     function signIn() {
         // Get values from input fields
         var usernameOrEmail = document.getElementById("txtUsernameOrEmail").value;
@@ -144,9 +146,15 @@
     }
 
     // Event listener for the sign-in button click
-    document.getElementById("button_sign_in").addEventListener("click", function() {
-        signIn();
-    });
+    var signInButton = document.getElementById("button_sign_in");
+    if (signInButton) {
+        signInButton.addEventListener("click", function() {
+            signIn();
+        });
+    } else {
+        console.error("Element with ID 'button_sign_in' not found.");
+    }
+});
 </script>
 
 
