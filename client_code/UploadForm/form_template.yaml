@@ -39,6 +39,7 @@ components:
     type: Button
     layout_properties: {grid_position: 'WWSJXW,MIZMNE'}
     event_bindings: {click: subscribe_click, show: subscribe_show}
+  event_bindings: {show: content_panel_show}
 custom_component: true
 properties:
 - {name: prop, type: string, default_value: '', important: true, default_binding_prop: true}

@@ -61,6 +61,10 @@ class UploadForm(UploadFormTemplate):
         """This method is called when the button is clicked"""
         pass
 
+    def content_panel_show(self, **event_args):
+      """This method is called when the column panel is shown on the screen"""
+      pass
+
 class Upload(UploadFormTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
