@@ -1,4 +1,3 @@
-import anvil.server
 from ._anvil_designer import UploadFormTemplate
 from anvil import open_form
 from anvil import Label, FileLoader, Button, Notification

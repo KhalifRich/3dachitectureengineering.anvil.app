@@ -1,4 +1,3 @@
-import anvil.server
 from ._anvil_designer import Sign_UpTemplate
 from anvil import open_form
 
