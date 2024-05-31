@@ -7,7 +7,8 @@ class SignInForm(SignInFormTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
-           anvil.users.get_user()
+        anvil.users.get_user()  # Fixed indentation
+
     # Method to handle sign-in button click
     def sign_in_click(self, email, password):
         # Validate email and password (e.g., check for empty fields)
@@ -69,34 +70,33 @@ class SignInForm(SignInFormTemplate):
     # Other code remains unchanged
 
     def button_2_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      
-      pass
+        """This method is called when the button is clicked"""
+        pass
 
     def form_show(self, **event_args):
-      """This method is called when the form is shown on the page"""
-      pass
+        """This method is called when the form is shown on the page"""
+        pass
 
     def text_box_2_pressed_enter(self, **event_args):
-      """This method is called when the user presses Enter in this text box"""
-      pass
+        """This method is called when the user presses Enter in this text box"""
+        pass
 
     def email_show(self, **event_args):
-      """This method is called when the TextBox is shown on the screen"""
-      pass
+        """This method is called when the TextBox is shown on the screen"""
+        pass
 
     def password_show(self, **event_args):
-      """This method is called when the TextBox is shown on the screen"""
-      pass
+        """This method is called when the TextBox is shown on the screen"""
+        pass
 
     def button_1_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      pass
+        """This method is called when the button is clicked"""
+        pass
 
     def button_2_show(self, **event_args):
-      """This method is called when the Button is shown on the screen"""
-      pass
+        """This method is called when the Button is shown on the screen"""
+        pass
 
     def text_box_1_pressed_enter(self, **event_args):
-      """This method is called when the user presses Enter in this text box"""
-      pass
+        """This method is called when the user presses Enter in this text box"""
+        pass
