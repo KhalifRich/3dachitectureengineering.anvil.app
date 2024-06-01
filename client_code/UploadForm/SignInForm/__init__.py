@@ -1,5 +1,7 @@
 # Import necessary modules
 from ._anvil_designer import SignInFormTemplate
+import anvil.server
+import anvil.users
 from anvil import open_form, alert, js
 
 # Class definition for SignInForm
