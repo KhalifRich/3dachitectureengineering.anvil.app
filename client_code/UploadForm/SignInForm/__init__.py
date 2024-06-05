@@ -39,14 +39,14 @@ class SignInForm(SignInFormTemplate):
         open_form('SignInForm')  # Corrected the function definition to include 'self'
 
     # Linking button click event to JavaScript function
-    def button_sign_in_click(self, **event_args):
+    def sign_in_button_click(self, **event_args):
         js.open_sign_in_form()
 
     # Method to handle enter key press in username text box
-    def text_box_1_click(self, **event_args):
+    def email_click(self, **event_args):
         """This method is called when the user presses Enter in the username text box"""
         # Fetch the username entered by the user
-        username = self.text_box_1.text
+        username = self.text_email.text
         
         # Move the focus to the email text box
         self.text_box_2.focus()
