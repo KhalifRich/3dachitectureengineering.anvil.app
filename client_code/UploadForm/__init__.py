@@ -56,7 +56,7 @@ class Upload(UploadFormTemplate):
             self.repeating_panel_1.items = self.objects_list
 
     def register_click(self, **event_args):
-        open_form('Register')
+        open_form('UploadForm.SignUpForm')
 
     def sign_in_click(self, **event_args):
         try:
