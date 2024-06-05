@@ -46,7 +46,7 @@ class Upload(UploadFormTemplate):
         self.init_components(**properties)
         self.objects_list = []
 
-    def file_loader_1_change(self, file, **event_args):
+    def upload_change(self, file, **event_args):
         if file:
             new_object = {
                 'image': 'https://via.placeholder.com/150',  # Placeholder image
@@ -74,7 +74,7 @@ class TileForm(UploadFormTemplate):
         self.init_components(**properties)
 
     def form_show(self, **event_args):
-        self.image_1.source = self.item['image']
+        self.image.source = self.item['image']
         self.label_1.text = self.item['name']
     
     def download_click(self, **event_args):

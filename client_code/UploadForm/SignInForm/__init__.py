@@ -113,7 +113,3 @@ class SignInForm(SignInFormTemplate):
         self.text_box_2.focus()
 
 # Other code remains unchanged
-
-    def sign_in_button_show(self, **event_args):
-      """This method is called when the Button is shown on the screen"""
-      pass

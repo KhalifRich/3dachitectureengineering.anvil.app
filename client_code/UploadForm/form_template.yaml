@@ -8,7 +8,7 @@ components:
   name: content_panel
   layout_properties: {slot: default}
   components:
-  - name: image_1
+  - name: image
     properties: {height: 126.44442749023438}
     type: Image
     layout_properties: {grid_position: 'AQRHDN,ZAYKLN'}
@@ -21,25 +21,25 @@ components:
     type: Button
     layout_properties: {grid_position: 'YOSKHM,NNFHOS'}
     event_bindings: {click: download_click}
-  - name: rich_text_1
-    properties: {content: 'Price:$'}
+  - name: price
+    properties: {content: 'Price:$5'}
     type: RichText
     layout_properties: {grid_position: 'YOSKHM,RLGFMG'}
   - name: spacer_1
     properties: {height: 33.666656494140625}
     type: Spacer
     layout_properties: {grid_position: 'YDITRN,JYKLSE'}
-  - name: file_loader_1
+  - name: upload
     properties: {}
     type: FileLoader
     layout_properties: {grid_position: 'YYDGQF,WWGITD'}
-    event_bindings: {change: file_loader_1_change, show: file_loader_1_show}
+    event_bindings: {change: upload_change, show: file_loader_1_show}
   - name: subscribe
     properties: {text: Subscribe, align: right}
     type: Button
     layout_properties: {grid_position: 'WWSJXW,MIZMNE'}
     event_bindings: {click: subscribe_click, show: subscribe_show}
-  event_bindings: {show: content_panel_show}
+  event_bindings: {show: Tile_form_show}
 custom_component: true
 properties:
 - {name: prop, type: string, default_value: '', important: true, default_binding_prop: true}
