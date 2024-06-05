@@ -1,6 +1,8 @@
 from ._anvil_designer import SignUpFormTemplate
 from anvil import open_form, alert
 import anvil.server
+from .SignUpForm import SignUpForm
+
 
 class SignUpForm(SignUpFormTemplate):
     def first_name_pressed_enter(self, **event_args):
