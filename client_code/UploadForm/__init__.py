@@ -59,7 +59,15 @@ class Upload(UploadFormTemplate):
         open_form('Register')
 
     def sign_in_click(self, **event_args):
-        pass  # Implement sign-in functionality
+        try:
+            user = anvil.users.login_with_form()
+            if user:
+                Notification("Sign in successful!", style="success").show()
+                open_form('UploadForm')  # Replace 'HomePage' with the actual home page form
+            else:
+                Notification("Sign in failed. Please try again.", style="danger").show()
+        except Exception as e:
+            Notification(f"An error occurred: {str(e)}", style="danger").show()
 
 class TileForm(UploadFormTemplate):
     def __init__(self, **properties):
@@ -70,7 +78,15 @@ class TileForm(UploadFormTemplate):
         self.label_1.text = self.item['name']
     
     def download_click(self, **event_args):
-        pass  # Booking logic here
+        try:
+            file_url = self.item.get('file_url')
+            if file_url:
+                anvil.server.download(file_url)
+                Notification("Download started.", style="info").show()
+            else:
+                Notification("No file available to download.", style="warning").show()
+        except Exception as e:
+            Notification(f"An error occurred: {str(e)}", style="danger").show()
 
     def create_checkout_session(self):
         session = anvil.server.call('create_checkout_session')

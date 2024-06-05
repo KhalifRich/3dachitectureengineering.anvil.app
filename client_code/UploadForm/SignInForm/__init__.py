@@ -9,7 +9,7 @@ class SignInForm(SignInFormTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
-        anvil.users.get_user()  # Fixed indentation
+        anvil.users.get_user()
 
     # Method to handle sign-in button click
     def sign_in_click(self, email, password):
@@ -28,7 +28,7 @@ class SignInForm(SignInFormTemplate):
 
     # Server function to authenticate the user
     def authenticate_user(self, email, password):
-        user = app_tables.users.get(email=email)
+        user = anvil.server.call('get_user', email=email)
         if user and user['password'].check_password(password):
             return True  # Authentication successful
         else:
@@ -58,6 +58,7 @@ class SignInForm(SignInFormTemplate):
         email = self.text_box_2.text
 
         # Attempt to sign in the user
+        password = self.text_box_3.text  # Assuming there is a password text box
         try:
             user_authenticated = self.authenticate_user(email, password)
             if user_authenticated:
@@ -69,36 +70,46 @@ class SignInForm(SignInFormTemplate):
             # If the user does not exist, display an error message
             alert("User does not exist. Please check your email or sign up.")
 
-    # Other code remains unchanged
-
+    # Method to handle the button click event
     def button_2_click(self, **event_args):
         """This method is called when the button is clicked"""
-        pass
+        email = self.text_box_2.text
+        password = self.text_box_3.text  # Assuming there is a password text box
+        self.sign_in_click(email, password)
 
+    # Method to handle form show event
     def form_show(self, **event_args):
         """This method is called when the form is shown on the page"""
-        pass
+        self.text_box_1.focus()
 
+    # Method to handle enter key press in the email text box
     def text_box_2_pressed_enter(self, **event_args):
         """This method is called when the user presses Enter in this text box"""
-        pass
+        self.button_2_click()
 
+    # Method to handle the email text box being shown on the screen
     def email_show(self, **event_args):
         """This method is called when the TextBox is shown on the screen"""
-        pass
+        self.text_box_2.focus()
 
+    # Method to handle the password text box being shown on the screen
     def password_show(self, **event_args):
         """This method is called when the TextBox is shown on the screen"""
-        pass
+        self.text_box_3.focus()
 
+    # Method to handle button click event
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
-        pass
+        open_form('RegisterForm')  # Assuming there is a RegisterForm to handle new registrations
 
+    # Method to handle button being shown on the screen
     def button_2_show(self, **event_args):
         """This method is called when the Button is shown on the screen"""
-        pass
+        self.button_2.focus()
 
+    # Method to handle enter key press in the username text box
     def text_box_1_pressed_enter(self, **event_args):
         """This method is called when the user presses Enter in this text box"""
-        pass
+        self.text_box_2.focus()
+
+# Other code remains unchanged
