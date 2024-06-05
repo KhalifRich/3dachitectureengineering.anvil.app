@@ -39,7 +39,7 @@ class SignInForm(SignInFormTemplate):
         open_form('SignInForm')  # Corrected the function definition to include 'self'
 
     # Linking button click event to JavaScript function
-    def button_sign_in_click(self, **event_args):
+    def sign_in_click(self, **event_args):
         js.open_sign_in_form()
 
     # Method to handle enter key press in username text box
@@ -71,7 +71,7 @@ class SignInForm(SignInFormTemplate):
             alert("User does not exist. Please check your email or sign up.")
 
     # Method to handle the button click event
-    def button_2_click(self, **event_args):
+    def sign_in_click(self, **event_args):
         """This method is called when the button is clicked"""
         email = self.text_box_2.text
         password = self.text_box_3.text  # Assuming there is a password text box
@@ -85,7 +85,7 @@ class SignInForm(SignInFormTemplate):
     # Method to handle enter key press in the email text box
     def text_box_2_pressed_enter(self, **event_args):
         """This method is called when the user presses Enter in this text box"""
-        self.button_2_click()
+        self.sign_in_click()
 
     # Method to handle the email text box being shown on the screen
     def email_show(self, **event_args):
@@ -95,17 +95,17 @@ class SignInForm(SignInFormTemplate):
     # Method to handle the password text box being shown on the screen
     def password_show(self, **event_args):
         """This method is called when the TextBox is shown on the screen"""
-        self.text_box_3.focus()
+        self.text_box_2.focus()
 
     # Method to handle button click event
-    def button_1_click(self, **event_args):
+    def register_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('RegisterForm')  # Assuming there is a RegisterForm to handle new registrations
 
     # Method to handle button being shown on the screen
-    def button_2_show(self, **event_args):
+    def register_show(self, **event_args):
         """This method is called when the Button is shown on the screen"""
-        self.button_2.focus()
+        self.register.focus()
 
     # Method to handle enter key press in the username text box
     def text_box_1_pressed_enter(self, **event_args):
@@ -113,3 +113,7 @@ class SignInForm(SignInFormTemplate):
         self.text_box_2.focus()
 
 # Other code remains unchanged
+
+    def sign_in_button_show(self, **event_args):
+      """This method is called when the Button is shown on the screen"""
+      pass

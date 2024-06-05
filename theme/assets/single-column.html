@@ -146,13 +146,13 @@
     }
 
     // Event listener for the sign-in button click
-    var signInButton = document.getElementById("button_sign_in");
-    if (signInButton) {
-        signInButton.addEventListener("click", function() {
+    var sign_in = document.getElementById("sign_in");
+    if (sign_in) {
+        sign_in.addEventListener("click", function() {
             signIn();
         });
     } else {
-        console.error("Element with ID 'button_sign_in' not found.");
+        console.error("Element with ID 'sign_in' not found.");
     }
 });
 </script>
