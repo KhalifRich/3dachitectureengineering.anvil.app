@@ -126,7 +126,11 @@
         </div>
 
         <div anvil-slot="default"></div>
-      <script>
+        <div class="text-center">
+          <div class="anvil-designer-only instructions">
+              <i class="fa fa-info-circle"></i> Add
+              <img src="https://anvil.works/template-assets/column-panel-icon.png" style="height: 30px; margin-right: -7px; margin-top: -5px"> Card components to create new cards.
+                        <script>
    document.addEventListener('DOMContentLoaded', function() {
     // Function to sign in
     function signIn() {
@@ -155,35 +159,6 @@
         console.error("Element with ID 'sign_in' not found.");
     }
 });
-</script>
-
-
-        <div class="text-center">
-          <div class="anvil-designer-only instructions">
-              <i class="fa fa-info-circle"></i> Add
-              <img src="https://anvil.works/template-assets/column-panel-icon.png" style="height: 30px; margin-right: -7px; margin-top: -5px"> Card components to create new cards.
-            <script>
-    function submitRegistration() {
-        // Get values from input fields
-        var first_name = document.getElementById("txtfirst_name").value;
-      var second_name = document.getElementById("txtsecond_name").value;
-      var phone = document.getElementById("txtphone").value;
-      var address = document.getElementById("address").value;
-      var email = document.getElementById("txtemail").value;
-        var password = document.getElementById("txtpassword").value;
-      var confirmpassword = document.getElementById("txtconfirmpassword").value;
-
-        // Call server-side function to add user
-        anvil.server.call('register_user', username, email)
-            .then(function(response) {
-                alert('User registered successfully!');
-                // Close the registration form after successful registration
-                anvil.call('close_form', 'RegistrationForm');
-            })
-            .catch(function(error) {
-                alert('Error registering user: ' + error);
-            });
-    }
 </script>
           </div>
         </div>

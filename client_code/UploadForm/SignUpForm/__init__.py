@@ -1,8 +1,8 @@
-from ._anvil_designer import Sign_UpTemplate
+from ._anvil_designer import SignUpFormTemplate
 from anvil import open_form, alert
 import anvil.server
 
-class Sign_Up(Sign_UpTemplate):
+class SignUpForm(SignUpFormTemplate):
     def first_name_pressed_enter(self, **event_args):
         """This method is called when the user presses Enter in this text box"""
         self.second_name.focus()
