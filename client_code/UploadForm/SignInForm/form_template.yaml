@@ -1,8 +1,7 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {html: '@theme:single-column.html', background: 'theme:Accent 1', foreground: 'theme:Accent
-      2', visible: true}
+  properties: {html: '@theme:single-column.html', background: 'theme:Accent 1', foreground: 'theme:Accent 2', visible: true}
   event_bindings: {show: form_show}
 components:
 - type: ColumnPanel

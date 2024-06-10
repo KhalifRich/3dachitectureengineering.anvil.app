@@ -3,9 +3,7 @@ services:
   client_config: {enable_v2: true}
   server_config: {auto_create_missing_columns: true}
 - source: /runtime/services/anvil/users.yml
-  client_config: {require_secure_passwords: true, use_token: true, use_email: true,
-    allow_remember_me: true, allow_signup: true, enable_automatically: true, confirm_email: true,
-    remember_me_days: 30, use_google: true}
+  client_config: {require_secure_passwords: true, use_token: true, use_email: true, allow_remember_me: true, allow_signup: true, enable_automatically: true, confirm_email: true, remember_me_days: 30, use_google: true}
   server_config: {user_table: users}
 - source: /runtime/services/google.yml
   client_config: {}
@@ -23,9 +21,7 @@ runtime_options:
   server_version: python3-sandbox
   server_spec: {base: python310-standard}
   server_spec_disabled: {requirements: '', base: python310-standard}
-metadata: {title: We Strictly Recommend 3D Architectural Designs Uploads, description: 'An
-    environment for 3D Architectural uploads for dynamic designs by global engineers,
-    enhancing interactive designing and better designs in the long run!'}
+metadata: {title: We Strictly Recommend 3D Architectural Designs Uploads, description: 'An environment for 3D Architectural uploads for dynamic designs by global engineers, enhancing interactive designing and better designs in the long run!'}
 startup_form: null
 db_schema:
   users:
