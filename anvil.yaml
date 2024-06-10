@@ -21,7 +21,7 @@ runtime_options:
   server_version: python3-sandbox
   server_spec: {base: python310-standard}
   server_spec_disabled: {requirements: '', base: python310-standard}
-metadata: {title: We Strictly Recommend 3D Architectural Designs Uploads, description: 'An environment for 3D Architectural uploads for dynamic designs by global engineers, enhancing interactive designing and better designs in the long run!'}
+metadata: {title: We Strictly Recommend 3D Architectural Designs Uploads, description: 'An environment for 3D Architectural uploads for dynamic designs by global engineers, enhancing interactive designing and better designs in the long run!', logo_img: 'http://3darchitectureengineering.anvil.app'}
 startup_form: null
 db_schema:
   users:
