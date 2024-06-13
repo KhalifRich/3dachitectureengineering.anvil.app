@@ -6,10 +6,8 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-import anvil.server
-# Import necessary modules
+from datetime import datetime
 from ._anvil_designer import UploadFormTemplate
-from anvil import open_form
 from anvil import open_form, alert, Link
 
 # This is a server module. It runs on the Anvil server,
@@ -23,6 +21,7 @@ from anvil import open_form, alert, Link
 # def say_hello(name):
 #   print("Hello, " + name + "!")
 #   return 42
+
 # Define the UploadForm class
 class UploadForm(UploadFormTemplate):
     def __init__(self, **properties):
@@ -32,6 +31,15 @@ class UploadForm(UploadFormTemplate):
 
     def file_loader_change(self, file, **event_args):
         # Process the uploaded file
+        UPLOAD_CREDIT = 300  # $3 in cents
+
+        @anvil.server.callable
+        def upload_project(user_email, project_title):
+            user = app_tables.users.get(email=user_email)
+            if user:
+                project = app_tables.projects.add_row(user=user, title=project_title, credits_earned=UPLOAD_CREDIT)
+                user['balance'] = (user['balance'] or 0) + UPLOAD_CREDIT
+                return project
         if file:
             alert("File uploaded successfully!")
             # Add your file processing logic here
@@ -41,7 +49,7 @@ class UploadForm(UploadFormTemplate):
 
             # Transition to the next form (if needed)
             open_form('NextForm')
-
+  
 # Define the RegisterForm class
 class RegisterForm(RegisterFormTemplate):
     def __init__(self, **properties):
