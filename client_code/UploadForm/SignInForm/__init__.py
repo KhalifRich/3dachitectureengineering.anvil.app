@@ -106,5 +106,14 @@ class SignInForm(SignInFormTemplate):
     def register_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('SignUpForm')  # Assuming there is a RegisterForm to handle new registrations
+@anvil.server.http_endpoint('/stripe/webhook', methods=['POST'])
+def stripe_webhook(**payload):
+    event = stripe.Event.construct_from(payload, stripe.api_key)
 
+    if event['type'] == 'transfer.created':
+        transfer = event['data']['object']
+        print(f"Transfer created: {transfer['id']}")
+    # Handle other event types...
+
+    return "Success"
 # Other code remains unchanged

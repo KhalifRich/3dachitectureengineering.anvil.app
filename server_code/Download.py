@@ -1,51 +1,45 @@
-import anvil.stripe
-import anvil.google.auth, anvil.google.drive, anvil.google.mail
-from anvil.google.drive import app_files
-import anvil.users
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
-import anvil.server
-from anvil import server, stripe, window
+import stripe
+from datetime import datetime
 
-# Define a server function to handle download and checkout
+stripe.api_key = "pk_live_51OVEBOJSA1HIvKzyhEGFtfRsONEJamAarke1ATOOWUArEtao908p1R0l4VtBZiTCsNfpWSqOpuYo0e41P63gGMwC00iTLg0sNK"
+
 @anvil.server.callable
-def initiate_download(product_id):
-    # Get product details (price, name, etc.) from the database
-    product_details = get_product_details(product_id)
+def download_project(user_email, project_id, quoted_price):
+    user = app_tables.users.get(email=user_email)
+    project = app_tables.projects.get_by_id(project_id)
+    engineer = project['user']
     
-    # Initiate checkout session with Stripe
-    session = stripe.checkout.Session.create(
-        payment_method_types=['card'],
-        line_items=[{
-            'price_data': {
-                'currency': 'usd',
-                'product_data': {
-                    'name': product_details['name'],
-                },
-                'unit_amount': product_details['price'] * 132,  # Stripe requires price in cents
-            },
-            'quantity': 1,
-        }],
-        mode='payment',
-        success_url=anvil.server.get_api_origin() + '/checkout/success',
-        cancel_url=anvil.server.get_api_origin() + '/checkout/cancel',
-    )
-    
-    # Return the checkout session ID to the client
-    return session.id
+    if user and project and engineer:
+        download_price = int(quoted_price * 100)  # Convert dollars to cents
+        engineer_share = download_price // 2
+        admin_share = download_price - engineer_share
 
-# Handle checkout success
-@anvil.server.http_endpoint('/checkout/success')
-def checkout_success():
-    # Handle checkout success
-    # Perform actions like marking the product as purchased in the database, sending confirmation emails, etc.
-    # You can also initiate the download process here
-    return {'status': 'success'}
+        # Transfer to engineer
+        try:
+            transfer = stripe.Transfer.create(
+                amount=engineer_share,
+                currency="usd",
+                destination=engineer['stripe_account_id'],
+                transfer_group="PROJECT_DOWNLOAD"
+            )
+            # Update engineer balance
+            engineer['balance'] = (engineer['balance'] or 0) + engineer_share
 
-# Handle checkout cancellation
-@anvil.server.http_endpoint('/checkout/cancel')
-def checkout_cancel():
-    # Handle checkout cancellation
-    # Redirect the user back to the product page or show a message
-    return {'status': 'cancelled'}
+            # Log the download
+            app_tables.downloads.add_row(
+                project=project,
+                user=user,
+                price=download_price,
+                download_time=datetime.now()
+            )
+
+            return {
+                "status": "success",
+                "engineer_share": engineer_share,
+                "admin_share": admin_share,
+                "transfer_id": transfer['id']
+            }
+        except stripe.error.StripeError as e:
+            raise Exception(f"Failed to transfer to engineer: {str(e)}")
+    else:
+        raise Exception("User or project not found")
