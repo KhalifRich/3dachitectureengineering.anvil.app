@@ -52,6 +52,9 @@ db_schema:
     - name: signed_up
       admin_ui: {order: 7, width: 200}
       type: datetime
+    - name: Status
+      admin_ui: {width: 200, order: 8}
+      type: string
     title: Users
   products:
     client: none
@@ -105,3 +108,11 @@ db_schema:
       admin_ui: {width: 200, order: 7}
       type: number
     title: Users
+  applications:
+    client: none
+    server: full
+    columns:
+    - name: APPLICATION
+      admin_ui: {width: 200, order: 0}
+      type: media
+    title: Applications
