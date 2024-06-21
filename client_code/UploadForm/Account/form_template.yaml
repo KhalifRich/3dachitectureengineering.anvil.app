@@ -6,7 +6,7 @@ components:
 - type: ColumnPanel
   properties: {}
   name: content_panel
-  layout_properties: {slot: title}
+  layout_properties: {slot: sidebar}
   components:
   - name: label_1
     properties: {bold: true, text: 'Are you applying as engineer?Upload your testimonials here...'}

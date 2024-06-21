@@ -6,7 +6,7 @@ components:
 - type: ColumnPanel
   properties: {col_widths: '{"NNFHOS":30,"RLGFMG":30}'}
   name: content_panel
-  layout_properties: {slot: default}
+  layout_properties: {slot: sidebar}
   components:
   - name: image
     properties: {height: 126.44442749023438}

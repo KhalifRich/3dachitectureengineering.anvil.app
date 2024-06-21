@@ -6,7 +6,7 @@ components:
 - type: ColumnPanel
   properties: {background: 'theme:Accent 1'}
   name: content_panel
-  layout_properties: {slot: default}
+  layout_properties: {slot: footer-links-left}
   components:
   - name: first_name
     properties: {text: first name}
