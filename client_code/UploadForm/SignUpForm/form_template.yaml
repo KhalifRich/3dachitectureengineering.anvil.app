@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:single-column.html'}
 components:
 - type: ColumnPanel
-  properties: {background: 'theme:Accent 1'}
+  properties: {background: '#121c1b'}
   name: content_panel
   layout_properties: {slot: footer-links-left}
   components:
