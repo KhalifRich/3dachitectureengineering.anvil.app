@@ -1,7 +1,7 @@
 from ._anvil_designer import SignUpFormTemplate
 from anvil import open_form, alert
 import anvil.server
-from .SignUpForm import SignUpForm
+from anvil import open_form, Label, FileLoader, Button, Notification
 
 
 class SignUpForm(SignUpFormTemplate):
@@ -60,7 +60,6 @@ class SignUpForm(SignUpFormTemplate):
             alert(f"An error occurred: {str(e)}", style="danger")
 
 # Server-side function example for creating a user
-@anvil.server.callable
 def create_user(first_name, second_name, phone, address, email, password):
     existing_user = app_tables.users.get(email=email)
     if existing_user:
