@@ -1,50 +1,50 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:single-column.html'}
 components:
-- type: ColumnPanel
-  properties: {background: '#121c1b'}
-  name: content_panel
-  layout_properties: {slot: footer-links-left}
-  components:
-  - name: first_name
+- components:
+  - event_bindings: {pressed_enter: first_name_pressed_enter}
+    layout_properties: {grid_position: 'EAMJWR,KGKDUC'}
+    name: first_name
     properties: {text: first name}
     type: TextBox
-    layout_properties: {grid_position: 'EAMJWR,KGKDUC'}
-    event_bindings: {pressed_enter: first_name_pressed_enter}
-  - name: second_name
+  - event_bindings: {pressed_enter: second_name_pressed_enter}
+    layout_properties: {grid_position: 'JGSOMK,SHEWOF'}
+    name: second_name
     properties: {text: second name}
     type: TextBox
-    layout_properties: {grid_position: 'JGSOMK,SHEWOF'}
-    event_bindings: {pressed_enter: second_name_pressed_enter}
-  - name: phone
+  - event_bindings: {pressed_enter: phone_pressed_enter}
+    layout_properties: {grid_position: 'HNAIAV,GUZCZE'}
+    name: phone
     properties: {text: phone}
     type: TextBox
-    layout_properties: {grid_position: 'HNAIAV,GUZCZE'}
-    event_bindings: {pressed_enter: phone_pressed_enter}
-  - name: address
+  - event_bindings: {pressed_enter: address_pressed_enter}
+    layout_properties: {grid_position: 'KFLMQO,AVXVIE'}
+    name: address
     properties: {text: address}
     type: TextBox
-    layout_properties: {grid_position: 'KFLMQO,AVXVIE'}
-    event_bindings: {pressed_enter: address_pressed_enter}
-  - name: email
+  - event_bindings: {pressed_enter: email_pressed_enter}
+    layout_properties: {grid_position: 'RISLQG,BTIEPI'}
+    name: email
     properties: {text: email}
     type: TextBox
-    layout_properties: {grid_position: 'RISLQG,BTIEPI'}
-    event_bindings: {pressed_enter: email_pressed_enter}
-  - name: password
+  - event_bindings: {pressed_enter: password_pressed_enter}
+    layout_properties: {grid_position: 'TCBQPD,RGRJUP'}
+    name: password
     properties: {text: password}
     type: TextBox
-    layout_properties: {grid_position: 'TCBQPD,RGRJUP'}
-    event_bindings: {pressed_enter: password_pressed_enter}
-  - name: confirm_password
+  - event_bindings: {pressed_enter: confirm_password_pressed_enter}
+    layout_properties: {grid_position: 'IVXXIO,ULPSPY'}
+    name: confirm_password
     properties: {text: confirm password}
     type: TextBox
-    layout_properties: {grid_position: 'IVXXIO,ULPSPY'}
-    event_bindings: {pressed_enter: confirm_password_pressed_enter}
-  - name: register
+  - event_bindings: {click: register_click}
+    layout_properties: {grid_position: 'YGGEJK,RKODSS'}
+    name: register
     properties: {text: Register}
     type: Button
-    layout_properties: {grid_position: 'YGGEJK,RKODSS'}
-    event_bindings: {click: register_click}
+  layout_properties: {slot: footer-links-left}
+  name: content_panel
+  properties: {background: '#121c1b'}
+  type: ColumnPanel
+container:
+  properties: {html: '@theme:single-column.html'}
+  type: HtmlTemplate
+is_package: true

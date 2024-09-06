@@ -1,36 +1,36 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:single-column.html', background: 'theme:Accent 1', foreground: 'theme:Accent 2', visible: true}
-  event_bindings: {show: form_show}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: content_panel
-  layout_properties: {slot: footer-links-left}
-  components:
-  - type: TextBox
-    properties: {text: email, enabled: true}
-    name: email
+- components:
+  - event_bindings: {pressed_enter: email_pressed_enter, show: email_show}
     layout_properties: {grid_position: 'QTZJRK,IPMKLS'}
-    event_bindings: {pressed_enter: email_pressed_enter, show: email_show}
-  - type: TextBox
-    properties: {text: password, enabled: true}
-    name: password
+    name: email
+    properties: {enabled: true, text: email}
+    type: TextBox
+  - event_bindings: {pressed_enter: password_pressed_enter, show: password_show}
     layout_properties: {grid_position: 'EKJBME,KUHMVE'}
-    event_bindings: {pressed_enter: password_pressed_enter, show: password_show}
-  - type: Button
-    properties: {text: sign in, enabled: true}
-    name: sign_in
+    name: password
+    properties: {enabled: true, text: password}
+    type: TextBox
+  - event_bindings: {click: sign_in_click, show: sign_in_show}
     layout_properties: {grid_position: 'LOSGXJ,NCFCXT', slot: title}
-    event_bindings: {click: sign_in_click, show: sign_in_show}
-  - name: Or
-    properties: {align: center, visible: true, bold: true, background: '', foreground: '#ffffff'}
-    type: Label
-    layout_properties: {grid_position: 'BKALJP,WUZFCV'}
-    data_bindings: []
-  - name: register
-    properties: {text: register, enabled: true}
+    name: sign_in
+    properties: {enabled: true, text: sign in}
     type: Button
+  - data_bindings: []
+    layout_properties: {grid_position: 'BKALJP,WUZFCV'}
+    name: Or
+    properties: {align: center, background: '', bold: true, foreground: '#ffffff', visible: true}
+    type: Label
+  - event_bindings: {click: register_click, show: register_show}
     layout_properties: {grid_position: 'JUDDNJ,KRNUWS'}
-    event_bindings: {show: register_show, click: register_click}
+    name: register
+    properties: {enabled: true, text: register}
+    type: Button
+  layout_properties: {slot: footer-links-left}
+  name: content_panel
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+container:
+  event_bindings: {show: form_show}
+  properties: {background: 'theme:Accent 1', foreground: 'theme:Accent 2', html: '@theme:single-column.html', visible: true}
+  type: HtmlTemplate
+is_package: true
