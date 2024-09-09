@@ -3,7 +3,6 @@ from datetime import datetime
 import anvil.server
 import anvil.tables as tables
 from anvil.tables import app_tables
-import anvil.scheduler
 
 stripe.api_key = "pk_live_51OVEBOJSA1HIvKzyhEGFtfRsONEJamAarke1ATOOWUArEtao908p1R0l4VtBZiTCsNfpWSqOpuYo0e41P63gGMwC00iTLg0sNK"
 
@@ -19,7 +18,6 @@ def upload_project(user_email, project_title):
     else:
         raise Exception("User not found")
 
-@anvil.server.callable
 def download_project(user_email, project_id, quoted_price):
     user = app_tables.users.get(email=user_email)
     project = app_tables.projects.get_by_id(project_id)
@@ -57,7 +55,6 @@ def download_project(user_email, project_id, quoted_price):
     else:
         raise Exception("User or project not found")
 
-@anvil.scheduler.task
 def monthly_credit_transfer():
     engineers = app_tables.users.search()
     for engineer in engineers:
