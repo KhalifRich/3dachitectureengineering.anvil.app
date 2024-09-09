@@ -56,7 +56,7 @@ class SignUpForm(SignUpFormTemplate):
             anvil.server.call('create_user', first_name, second_name, phone, address, email, password)
             alert("Registration successful!", style="success")
             open_form('SignInForm')  # Redirect to sign-in form after successful registration
-        except anvil.server.ServerError as e:
+        except Exception as e: 
             alert(f"An error occurred: {str(e)}", style="danger")
 
 # Server-side function example for creating a user
