@@ -1,6 +1,5 @@
 import stripe
 from datetime import datetime
-import anvil.server
 
 stripe.api_key = "pk_live_51OVEBOJSA1HIvKzyhEGFtfRsONEJamAarke1ATOOWUArEtao908p1R0l4VtBZiTCsNfpWSqOpuYo0e41P63gGMwC00iTLg0sNK"
 
