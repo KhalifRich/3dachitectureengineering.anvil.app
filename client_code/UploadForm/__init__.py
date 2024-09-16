@@ -3,6 +3,7 @@ import anvil.server
 import anvil.users
 from anvil import open_form, Label, FileLoader, Button, Notification
 
+
 # Define the main form class for the app
 class UploadForm(UploadFormTemplate):
     def __init__(self, **properties):
@@ -20,7 +21,7 @@ class UploadForm(UploadFormTemplate):
         self.add_component(self.file_loader)
         self.add_component(self.upload_button)
         self.add_component(self.notification)
-
+        anvil.server.connect("client_PZ7EIGSDEHWYW4J7KFNUCKCK-O4K32GQTI5IPOBJ7")
         # Connect to the existing database and tables
         self.users_table = anvil.server.database['users']  # Assuming 'users' is the name of the table
 

@@ -3,7 +3,6 @@ from anvil import open_form, alert
 import anvil.server
 from anvil import open_form, Label, FileLoader, Button, Notification
 
-
 class SignUpForm(SignUpFormTemplate):
     def first_name_pressed_enter(self, **event_args):
         """This method is called when the user presses Enter in this text box"""
@@ -35,6 +34,7 @@ class SignUpForm(SignUpFormTemplate):
 
     def register_click(self, **event_args):
         """This method is called when the button is clicked"""
+        anvil.server.connect("client_PZ7EIGSDEHWYW4J7KFNUCKCK-O4K32GQTI5IPOBJ7")
         first_name = self.first_name.text
         second_name = self.second_name.text
         phone = self.phone.text
