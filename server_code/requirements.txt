@@ -1,0 +1,3 @@
+anvil-uplink==0.3.42    
+stripe==5.9.0           # For handling Stripe payments
+datetime                # Standard library for date and time handling
