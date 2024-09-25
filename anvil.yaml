@@ -8,30 +8,7 @@ db_schema:
       type: media
     server: full
     title: Applications
-  products:
-    client: none
-    columns:
-    - admin_ui: {order: 0, width: 200}
-      name: Design
-      type: simpleObject
-    - admin_ui: {order: 1, width: 200}
-      name: Name
-      type: string
-    - admin_ui: {order: 2, width: 200}
-      name: Id
-      type: number
-    - admin_ui: {order: 3, width: 200}
-      name: Size
-      type: number
-    - admin_ui: {order: 4, width: 200}
-      name: Price
-      type: number
-    - admin_ui: {order: 5, width: 200}
-      name: Description
-      type: string
-    server: full
-    title: Products
-  users:
+  info:
     client: search
     columns:
     - admin_ui: {order: 0, width: 200}
@@ -63,7 +40,30 @@ db_schema:
       type: string
     server: search
     title: Users
-  users_2:
+  products:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: Design
+      type: simpleObject
+    - admin_ui: {order: 1, width: 200}
+      name: Name
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: Id
+      type: number
+    - admin_ui: {order: 3, width: 200}
+      name: Size
+      type: number
+    - admin_ui: {order: 4, width: 200}
+      name: Price
+      type: number
+    - admin_ui: {order: 5, width: 200}
+      name: Description
+      type: string
+    server: full
+    title: Products
+  users:
     client: full
     columns:
     - admin_ui: {order: 0, width: 200}

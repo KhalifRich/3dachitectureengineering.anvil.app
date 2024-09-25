@@ -9,6 +9,7 @@ class SignInForm(SignInFormTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
+        anvil.users.login_with_form()
         anvil.users.get_user()
 
     # Method to handle sign-in button click
