@@ -118,3 +118,4 @@ services:
   source: /runtime/services/stripe.yml
 startup: {module: UploadForm.SignUpForm, type: form}
 startup_form: null
+uplink_visible: true
