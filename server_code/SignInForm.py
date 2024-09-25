@@ -14,7 +14,6 @@ import anvil.google.auth, anvil.google.drive, anvil.google.mail
 from ._anvil_designer import SignInFormTemplate
 from anvil import open_form, alert, js
 
-anvil.server.connect("client_PZ7EIGSDEHWYW4J7KFNUCKCK-O4K32GQTI5IPOBJ7")
 # Function to authenticate user
 @anvil.server.callable
 def authenticate_user(username_or_email, password):

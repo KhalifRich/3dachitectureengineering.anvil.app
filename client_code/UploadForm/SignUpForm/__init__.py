@@ -1,7 +1,6 @@
 from ._anvil_designer import SignUpFormTemplate
 from anvil import open_form, alert
 import anvil.server
-anvil.server.connect("server_BCKBATOU3MC27423GKPWVO5E-O4K32GQTI5IPOBJ7")
 from anvil import open_form, Label, FileLoader, Button, Notification
 
 class SignUpForm(SignUpFormTemplate):

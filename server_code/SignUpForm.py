@@ -14,7 +14,6 @@ from anvil.tables import app_tables
 # Server function for user registration
 @anvil.server.callable
 def register_user(first_name, last_name, phone, address, password):
-    anvil.server.connect("client_PZ7EIGSDEHWYW4J7KFNUCKCK-O4K32GQTI5IPOBJ7")
     try:
         # Check if username or email is already taken
         if app_tables.users.get(first_name=first_name) or app_tables.users.get(email=email):
