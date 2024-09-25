@@ -34,7 +34,7 @@ class SignUpForm(SignUpFormTemplate):
 
     def register_click(self, **event_args):
         """This method is called when the button is clicked"""
-        anvil.server.connect("client_PZ7EIGSDEHWYW4J7KFNUCKCK-O4K32GQTI5IPOBJ7")
+        anvil.server.connect("server_BCKBATOU3MC27423GKPWVO5E-O4K32GQTI5IPOBJ7")
         first_name = self.first_name.text
         second_name = self.second_name.text
         phone = self.phone.text

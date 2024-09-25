@@ -21,7 +21,6 @@ class UploadForm(UploadFormTemplate):
         self.add_component(self.file_loader)
         self.add_component(self.upload_button)
         self.add_component(self.notification)
-        anvil.server.connect("client_PZ7EIGSDEHWYW4J7KFNUCKCK-O4K32GQTI5IPOBJ7")
         # Connect to the existing database and tables
         self.users_table = anvil.server.database['users']  # Assuming 'users' is the name of the table
 

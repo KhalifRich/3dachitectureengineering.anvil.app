@@ -5,7 +5,6 @@ from anvil.google.drive import app_files
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
-anvil.server.connect("server_BCKBATOU3MC27423GKPWVO5E-O4K32GQTI5IPOBJ7")
 from anvil.tables import app_tables
 import anvil.server
 
