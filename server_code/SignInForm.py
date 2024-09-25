@@ -20,7 +20,7 @@ from anvil import open_form, alert, js
 def authenticate_user(username_or_email, password):
     # Here you would perform the authentication logic, such as checking the username/email and password against your database
     # For demonstration purposes, let's assume a simple check
-    if username_or_email == 'test_user' and password == 'password123':
+    if username_or_email == 'test_user' and password == 'password':
         return True
     else:
         open_form('SignUpForm')
