@@ -32,7 +32,7 @@ db_schema:
     server: full
     title: Products
   users:
-    client: none
+    client: search
     columns:
     - admin_ui: {order: 0, width: 200}
       name: email
@@ -61,7 +61,7 @@ db_schema:
     - admin_ui: {order: 8, width: 200}
       name: Status
       type: string
-    server: full
+    server: search
     title: Users
   users_2:
     client: full
@@ -116,6 +116,9 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/stripe.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/secrets.yml
 startup: {module: UploadForm.SignUpForm, type: form}
 startup_form: null
 uplink_visible: true

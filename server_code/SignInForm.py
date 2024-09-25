@@ -1,3 +1,4 @@
+import anvil.secrets
 from ._anvil_designer import UploadFormTemplate
 from anvil import open_form, alert, Button, FileLoader, Label, Notification
 import stripe.checkout

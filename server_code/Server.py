@@ -1,13 +1,15 @@
+import anvil.secrets
 import anvil.stripe
 import anvil.google.auth, anvil.google.drive, anvil.google.mail
 from anvil.google.drive import app_files
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
+anvil.server.connect("server_BCKBATOU3MC27423GKPWVO5E-O4K32GQTI5IPOBJ7")
 from anvil.tables import app_tables
 import anvil.server
 
-anvil.server.connect("server_BCKBATOU3MC27423GKPWVO5E-O4K32GQTI5IPOBJ7")
+
 @anvil.server.callable
 def create_user(first_name, second_name, phone, address, email, password):
     existing_user = app_tables.users.get(email=email)
