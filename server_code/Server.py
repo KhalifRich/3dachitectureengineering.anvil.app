@@ -7,7 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
-connect("server_BCKBATOU3MC27423GKPWVO5E-O4K32GQTI5IPOBJ7")
+anvil.server.connect("server_BCKBATOU3MC27423GKPWVO5E-O4K32GQTI5IPOBJ7")
 @anvil.server.callable
 def create_user(first_name, second_name, phone, address, email, password):
     existing_user = app_tables.users.get(email=email)
