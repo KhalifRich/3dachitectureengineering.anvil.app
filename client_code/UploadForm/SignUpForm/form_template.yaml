@@ -47,4 +47,13 @@ components:
 container:
   properties: {html: '@theme:single-column.html'}
   type: HtmlTemplate
+custom_component: true
+custom_component_container: true
+events:
+- {default_event: true, name: event}
+- {name: sign_up}
 is_package: true
+properties:
+- {allow_binding_writeback: true, default_value: null, important: true, name: prop, type: form}
+- {allow_binding_writeback: true, default_binding_prop: true, important: true, name: prop_2, type: form}
+slots: {}
