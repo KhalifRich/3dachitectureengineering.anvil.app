@@ -40,8 +40,9 @@ container:
   properties: {html: '@theme:dashboard.html', visible: true}
   type: HtmlTemplate
 custom_component: true
+custom_component_container: true
 is_package: true
 properties:
-- {default_binding_prop: true, default_value: '', important: true, name: prop, type: string}
-- {default_value: '', important: true, name: prop_2, type: string}
+- {default_binding_prop: true, default_value: UploadForm.Account, important: true, name: prop, type: form}
+- {important: true, name: prop_2, type: form}
 slots: {}

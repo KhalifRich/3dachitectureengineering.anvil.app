@@ -8,7 +8,59 @@ db_schema:
       type: media
     server: full
     title: Applications
-  info:
+  projects:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: Design
+      type: simpleObject
+    - admin_ui: {order: 1, width: 200}
+      name: Name
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: Id
+      type: number
+    - admin_ui: {order: 3, width: 200}
+      name: Size
+      type: number
+    - admin_ui: {order: 4, width: 200}
+      name: Price
+      type: number
+    - admin_ui: {order: 5, width: 200}
+      name: Description
+      type: string
+    server: full
+    title: projects
+  users:
+    client: full
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: FirstName
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: Second Name
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: Phone Number
+      type: number
+    - admin_ui: {order: 3, width: 200}
+      name: Address
+      type: number
+    - admin_ui: {order: 4, width: 200}
+      name: Email
+      type: string
+    - admin_ui: {order: 5, width: 200}
+      name: Password
+      type: string
+    - admin_ui: {order: 6, width: 200}
+      name: Confirm Password
+      type: string
+    - admin_ui: {order: 7, width: 200}
+      name: Credits
+      type: number
+    server: search
+    title: Users
+  users_2:
     client: search
     columns:
     - admin_ui: {order: 0, width: 200}
@@ -40,58 +92,6 @@ db_schema:
       type: string
     server: search
     title: Users
-  products:
-    client: none
-    columns:
-    - admin_ui: {order: 0, width: 200}
-      name: Design
-      type: simpleObject
-    - admin_ui: {order: 1, width: 200}
-      name: Name
-      type: string
-    - admin_ui: {order: 2, width: 200}
-      name: Id
-      type: number
-    - admin_ui: {order: 3, width: 200}
-      name: Size
-      type: number
-    - admin_ui: {order: 4, width: 200}
-      name: Price
-      type: number
-    - admin_ui: {order: 5, width: 200}
-      name: Description
-      type: string
-    server: full
-    title: Products
-  users:
-    client: full
-    columns:
-    - admin_ui: {order: 0, width: 200}
-      name: FirstName
-      type: string
-    - admin_ui: {order: 1, width: 200}
-      name: Second Name
-      type: string
-    - admin_ui: {order: 2, width: 200}
-      name: Phone Number
-      type: number
-    - admin_ui: {order: 3, width: 200}
-      name: Address
-      type: number
-    - admin_ui: {order: 4, width: 200}
-      name: Email
-      type: string
-    - admin_ui: {order: 5, width: 200}
-      name: Password
-      type: string
-    - admin_ui: {order: 6, width: 200}
-      name: Confirm Password
-      type: string
-    - admin_ui: {order: 7, width: 200}
-      name: Credits
-      type: number
-    server: search
-    title: Users
 metadata: {description: 'An environment for 3D Architectural uploads for dynamic designs by global engineers, enhancing interactive designing and better designs in the long run!', logo_img: 'http://3darchitectureengineering.anvil.app', title: We Strictly Recommend 3D Architectural Designs Uploads}
 name: 3dachitectureengineering
 native_deps: null
@@ -119,6 +119,9 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/anvil/secrets.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/email.yml
 startup: {module: UploadForm.SignUpForm, type: form}
 startup_form: null
 uplink_visible: true

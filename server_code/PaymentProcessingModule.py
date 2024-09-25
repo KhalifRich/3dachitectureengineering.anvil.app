@@ -1,3 +1,4 @@
+import anvil.email
 import anvil.secrets
 # Import necessary modules
 from ._anvil_designer import UploadFormTemplate
